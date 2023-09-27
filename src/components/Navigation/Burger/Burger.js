@@ -8,9 +8,7 @@ import { useToggle } from '../../hooks/useToggle';
 export default function Burger({ isLight, onAccountClick }) {
   const { value: open, toggle: toggleOpen } = useToggle();
 
-  if (open) {
-    document.body.style.overflow = 'hidden';
-  }
+  document.body.style.overflow = open ? 'hidden' : '';
   return (
     <>
       <button onClick={toggleOpen} className='btn burger'>
