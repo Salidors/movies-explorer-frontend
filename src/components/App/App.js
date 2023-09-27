@@ -9,28 +9,47 @@ import Signup from '../Register/Signup';
 import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import { Context } from '../Context/Context';
+import { useState } from 'react';
+import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
+import Signout from '../Signout/Signout';
 
 function App() {
-  const isAuth = true;
+  const [currentUser, setCurrentUser] = useState({
+    name: 'Нина Абрамова',
+    email: 'abramova.nina.g.@gmail.com',
+  });
+  const [isAuth, setIsAuth] = useState(true);
+  const [isLight, setIsLight] = useState(true);
 
+  const updateCurrentUser = ({ name, email }) => {
+    setCurrentUser({ name, email });
+  };
   return (
-    <div className='app'>
-      <Routes>
-        <Route path='/'>
-          <Route element={<LoginLayout />}>
-            <Route path='signin' element={<Signin />} />
-            <Route path='signup' element={<Signup />} />
+    <Context.Provider
+      value={{ currentUser, updateCurrentUser, isAuth, isLight }}
+    >
+      <div className='app'>
+        <Routes>
+          <Route path='/'>
+            <Route element={<LoginLayout />}>
+              <Route path='signin' element={<Signin />} />
+              <Route path='signup' element={<Signup />} />
+            </Route>
+            <Route element={<EmptyFooterLayout />}>
+              <Route path='profile' element={<Profile />} />
+            </Route>
+            <Route element={<Layout />}>
+              <Route index element={<Main />} />
+              <Route path='movies' element={<Movies />} />
+              <Route path='saved-movies' element={<SavedMovies />} />
+            </Route>
+            <Route path='signout' element={<Signout />} />
           </Route>
-          <Route element={<Layout isAuth={isAuth} />}>
-            <Route index element={<Main />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='movies' element={<Movies />} />
-            <Route path='saved-movies' element={<SavedMovies />} />
-          </Route>
-        </Route>
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
-    </div>
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </div>
+    </Context.Provider>
   );
 }
 

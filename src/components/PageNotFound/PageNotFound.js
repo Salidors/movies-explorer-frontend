@@ -8,7 +8,7 @@ export default function PageNotFound() {
 
   return (
     <main className='not-found'>
-      <div style={{ margin: 'auto 0' }} className='not-found__container'>
+      <div className='not-found__container'>
         <h2 className='not-found__container-title'>404</h2>
         <p className='not-found__container-text'>Страница не найдена</p>
       </div>

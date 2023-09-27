@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.not-found__container {
+  margin: auto 0;
+}
+
 .not-found__container-title {
   color: #000;
   text-align: center;

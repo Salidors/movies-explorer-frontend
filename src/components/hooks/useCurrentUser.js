@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Context } from '../Context/Context';
 
 export const useCurrentUser = () => {
-  const { currentUser } = useContext(Context);
+  const { currentUser, updateCurrentUser } = useContext(Context);
 
-  return currentUser;
+  return { currentUser, updateCurrentUser };
 };
