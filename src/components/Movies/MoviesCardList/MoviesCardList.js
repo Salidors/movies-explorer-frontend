@@ -16,7 +16,6 @@ export default function MoviesCardList({
             key={movie._id}
             favorites={favorites}
             onLike={onLike}
-
           />
         ))}
       </ul>

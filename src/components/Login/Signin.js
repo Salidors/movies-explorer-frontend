@@ -15,7 +15,7 @@ export default function Signin() {
           <label className='signin__input-label'>Пароль</label>
           <input type='password' className='signin__input' />
         </div>
-        <button className='signin__form-button'>Войти</button>
+        <button className='btn signin__form-button'>Войти</button>
         <nav className='signin__form-nav'>
           <span className='signin__form-text'>Ещё не зарегистрированы?</span>
           <Link to='/signup' className='link signin__form-link'>

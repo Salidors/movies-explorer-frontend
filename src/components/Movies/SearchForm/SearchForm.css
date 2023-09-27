@@ -32,6 +32,7 @@
 }
 
 .form-search__container-input {
+  width: 100%;
   border: 0;
   outline: 0;
   color: #a0a0a0;
