@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import './Movies.css';
 import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
+import Preloader from './Preloader/Preloader';
 
 export default function Movies({ moviesPerPage }) {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const handleOnSearch = useCallback((event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setMovies(_movies);
+    }, 3000);
+  }, []);
+
   return (
     <main className='movies-page'>
-      <SearchForm />
-      <MoviesCardList movies={movies} moviesPerPage={moviesPerPage} />
+      <SearchForm onSearch={handleOnSearch} />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList movies={movies} moviesPerPage={moviesPerPage} />
+      )}
     </main>
   );
 }
 
-const movies = [
+const _movies = [
   {
     _id: '6505a76e1608588f5257e314',
     country: 'США',

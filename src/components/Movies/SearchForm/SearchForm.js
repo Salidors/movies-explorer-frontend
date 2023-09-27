@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SearchForm.css';
 import Toggle from '../../Toggle/Toggle';
 
-export default function SearchForm() {
+export default function SearchForm({ onSearch }) {
   const [isToggled, setIsToggled] = useState(true);
 
   return (
@@ -13,7 +13,9 @@ export default function SearchForm() {
           className='form-search__container-input'
           placeholder='Фильм'
         />
-        <button className='form-search__container-button'>Найти</button>
+        <button className='form-search__container-button' onClick={onSearch}>
+          Найти
+        </button>
       </div>
       <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
     </form>

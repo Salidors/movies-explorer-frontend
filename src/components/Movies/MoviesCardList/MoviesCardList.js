@@ -34,9 +34,11 @@ export default function MoviesCardList({
           />
         ))}
       </ul>
-      <button className='btn movies-page__more' onClick={handleOnMore}>
-        Ещё
-      </button>
+      {movies.length > 0 && (
+        <button className='btn movies-page__more' onClick={handleOnMore}>
+          Ещё
+        </button>
+      )}
     </section>
   );
 }
