@@ -1,15 +1,15 @@
 import React from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import './Layout.css';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 
 export default function Layout() {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
   const isAuth = useAuth();
-  const isLight = pathname !== '/';
+  const { isLight } = useTheme();
 
   return (
     <div className='layout'>

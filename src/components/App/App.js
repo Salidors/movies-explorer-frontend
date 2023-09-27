@@ -20,11 +20,13 @@ function App() {
     email: 'abramova.nina.g.@gmail.com',
   });
   const [isAuth, setIsAuth] = useState(true);
-  const [isLight, setIsLight] = useState(true);
 
   const updateCurrentUser = ({ name, email }) => {
     setCurrentUser({ name, email });
   };
+
+  const isLight = window.location.pathname !== '/';
+
   return (
     <Context.Provider
       value={{ currentUser, updateCurrentUser, isAuth, isLight }}
