@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #073042;
+  padding: 18px 70px;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+}
+
+.header__nav-list-link {
+  color: #fff;
+  text-align: right;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+.header__nav-list-link_active {
+  font-weight: 500;
+}
