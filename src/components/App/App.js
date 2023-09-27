@@ -6,6 +6,9 @@ import Main from '../Main/Main';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Signin from '../Login/Signin';
 import Signup from '../Register/Signup';
+import Profile from '../Profile/Profile';
+import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
   const isAuth = false;
@@ -13,13 +16,16 @@ function App() {
   return (
     <div className='app'>
       <Routes>
-        <Route element={<LoginLayout />}>
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/signup' element={<Signup />} />
-        </Route>
         <Route path='/'>
+          <Route element={<LoginLayout />}>
+            <Route path='signin' element={<Signin />} />
+            <Route path='signup' element={<Signup />} />
+          </Route>
           <Route element={<Layout isAuth={isAuth} />}>
             <Route index element={<Main />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='movies' element={<Movies />} />
+            <Route path='saved-movies' element={<SavedMovies />} />
           </Route>
         </Route>
         <Route path='*' element={<PageNotFound />} />
