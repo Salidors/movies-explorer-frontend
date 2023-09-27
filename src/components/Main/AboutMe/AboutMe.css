@@ -2,20 +2,37 @@
   display: flex;
   flex-flow: column;
   background: #ffffff;
-  padding: 110px 70px;
+  padding: 110px 70px 0;
 }
 
-.me__private {
+.me__title {
+  color: #000;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  margin: 0;
+}
+
+.me__title-line {
+  border-bottom: 1px #000 solid;
+  padding-bottom: 23px;
+}
+
+.me__private-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 66px;
 }
 
-.me__description {
+.me__private-description-container {
   display: flex;
   flex-flow: column;
 }
 
-.me__title {
+.me__private-name {
   font-family: Inter;
   font-size: 50px;
   font-style: normal;
@@ -25,7 +42,7 @@
   margin: 0;
 }
 
-.me-about {
+.me__private-about {
   width: 600px;
   color: #000;
   font-family: Inter;
@@ -36,7 +53,7 @@
   margin: 0;
 }
 
-.me__subtitle {
+.me__private-bio {
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -47,17 +64,12 @@
   margin: 18px 0 26px;
 }
 
-.me__link {
+.me__private-github {
   color: #000;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-decoration: none;
   margin-top: auto;
-}
-
-.me__link:hover {
-  text-decoration: none;
 }
