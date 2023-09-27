@@ -7,7 +7,6 @@ export default function Footer() {
       <p className='footer__text'>
         Учебный проект Яндекс. Практикум х BeatFilm.
       </p>
-      <div className='line line-gray footer__line' />
       <div className='footer__copyright-container'>
         <p className='footer__copyright-text'>&copy; 2023 Нина Абрамова</p>
         <nav className='footer__nav'>
