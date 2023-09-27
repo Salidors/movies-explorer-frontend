@@ -3,7 +3,7 @@
   padding: 110px 70px;
 }
 
-.project-title {
+.about__title {
   color: #000;
   font-family: Inter;
   font-size: 22px;
@@ -14,8 +14,17 @@
   margin: 0;
 }
 
+.about__title-line {
+  border-bottom: 1px #000 solid;
+  padding-bottom: 23px;
+  margin-bottom: 70px;
+}
+
 .about__list {
   display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   gap: 40px;
 }
 
@@ -23,7 +32,7 @@
   flex: 1 0 calc(50% - 40px);
 }
 
-.about_text {
+.about__list-text {
   color: #000;
   font-family: Inter;
   font-size: 14px;
@@ -33,7 +42,7 @@
   margin: 0;
 }
 
-.about_title {
+.about__list-title {
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -51,18 +60,15 @@
   margin-top: 110px;
 }
 
-.about__progress_item {
-}
-
-.about__progress_item1 {
+.about__progress-item1 {
   flex: 1 0 25%;
 }
 
-.about__progress_item2 {
+.about__progress-item2 {
   flex: 1 0 75%;
 }
 
-.about__progress_item-green {
+.about__progress-item-green {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +76,7 @@
   height: 36px;
 }
 
-.about__progress_item-gray {
+.about__progress-item-gray {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +95,7 @@
   margin: 0;
 }
 
-.about__progress_text {
+.about__progress-item-text {
   color: #a0a0a0;
   text-align: center;
   font-family: Inter;

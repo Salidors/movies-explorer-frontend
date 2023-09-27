@@ -4,39 +4,40 @@ import './AboutProject.css';
 export default function AboutProject() {
   return (
     <section className='about'>
-      <div>
-        <h3 className='project-title'>О проекте</h3>
-        <div className='line' />
-      </div>
-      <div className='about__list'>
-        <div className='about__list_item'>
-          <h4 className='about_title'>Дипломный проект включал 5 этапов</h4>
-          <p className='about_text'>
+      <h3 className='about__title about__title-line'>О проекте</h3>
+      <ul className='about__list'>
+        <li className='about__list-item'>
+          <h4 className='about__list-title'>
+            Дипломный проект включал 5 этапов
+          </h4>
+          <p className='about__list-text'>
             Составление плана, работу над бэкендом, вёрстку, добавление
             функциональности и финальные доработки.
           </p>
-        </div>
-        <div className='about__list_item'>
-          <h4 className='about_title'>На выполнение диплома ушло 5 недель</h4>
-          <p className='about_text'>
+        </li>
+        <li className='about__list-item'>
+          <h4 className='about__list-title'>
+            На выполнение диплома ушло 5 недель
+          </h4>
+          <p className='about__list-text'>
             У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было
             соблюдать, чтобы успешно защититься.
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div className='about__progress'>
-        <div className='about__progress_item about__progress_item1'>
-          <div className='about__progress_item-green'>
+        <div className='about__progress-item about__progress-item1'>
+          <div className='about__progress-item-green'>
             <p className='about__progress_title'>1 неделя</p>
           </div>
-          <p className='about__progress_text'>Back-end</p>
+          <p className='about__progress-item-text'>Back-end</p>
         </div>
 
-        <div className='about__progress_item about__progress_item2'>
-          <div className='about__progress_item-gray'>
+        <div className='about__progress-item about__progress-item2'>
+          <div className='about__progress-item-gray'>
             <p className='about__progress_title'>4 неделя</p>
           </div>
-          <p className='about__progress_text'>Front-end</p>
+          <p className='about__progress-item-text'>Front-end</p>
         </div>
       </div>
     </section>

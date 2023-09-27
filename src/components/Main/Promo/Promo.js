@@ -6,21 +6,17 @@ export default function Promo() {
   return (
     <section className='promo'>
       <div className='promo__container'>
-        <h2 className='title'>
+        <h2 className='promo__container-title'>
           Учебный проект студента факультета
           <br />
           Веб-разработки.
         </h2>
-        <p className='text'>
+        <p className='promo__container-text'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <button className='btn'>Узнать больше</button>
+        <button className='btn promo__container-btn'>Узнать больше</button>
       </div>
-      <img
-        className='promo__container-img'
-        src={landingLogo}
-        alt='Веб земной шар'
-      />
+      <img className='promo__globus' src={landingLogo} alt='глобус' />
     </section>
   );
 }
