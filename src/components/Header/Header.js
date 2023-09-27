@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../images/logo.svg';
-import Menu from './Menu/Menu';
+import Navigation from '../Navigation/Navigation';
 import { NavLink } from 'react-router-dom';
 
 const AuthNavigation = () => {
@@ -37,12 +37,12 @@ const AuthNavigation = () => {
   );
 };
 
-export default function Header({ isAuth, isLight }) {
+export default function Header({ isAuth, isLight, onAccountClick }) {
   return (
     <header className={`header ${isLight ? 'header__theme-light' : ''}`}>
       <img src={logo} alt='logo' />
       {isAuth && <AuthNavigation />}
-      <Menu isAuth={isAuth} isLight={isLight} />
+      <Navigation isAuth={isAuth} isLight={isLight} onAccountClick={onAccountClick} />
     </header>
   );
 }

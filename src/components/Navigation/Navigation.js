@@ -1,7 +1,7 @@
 import React from 'react';
-import './Menu.css';
+import './Navigation.css';
 import { Link } from 'react-router-dom';
-import ProfileButton from '../ProfileButton/ProfileButton';
+import ProfileButton from './ProfileButton/ProfileButton';
 
 const AnonymousMenu = () => {
   return (
@@ -16,15 +16,15 @@ const AnonymousMenu = () => {
   );
 };
 
-const AuthMenu = ({ isLight }) => {
-  return <ProfileButton isLight={isLight} />;
+const AuthMenu = ({ isLight, onAccountClick }) => {
+  return <ProfileButton isLight={isLight} onClick={onAccountClick} />;
 };
 
-export default function Menu({ isAuth, isLight }) {
+export default function Navigation({ isAuth, isLight, onAccountClick }) {
   return (
     <div>
       {isAuth ? (
-        <AuthMenu isLight={isLight} />
+        <AuthMenu isLight={isLight} onAccountClick={onAccountClick} />
       ) : (
         <AnonymousMenu isLight={isLight} />
       )}

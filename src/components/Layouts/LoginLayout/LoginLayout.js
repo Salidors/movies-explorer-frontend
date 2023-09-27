@@ -1,12 +1,14 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import './LoginLayout.css';
 import LoginHeader from '../../Header/LoginHeader/LoginHeader';
 
 export default function LoginLayout() {
+  const navigate = useNavigate();
+
   return (
     <div className='login-layout'>
-      <LoginHeader />
+      <LoginHeader onAccountClick={() => navigate('/profile')} />
       <Outlet />
     </div>
   );
