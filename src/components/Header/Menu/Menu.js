@@ -16,10 +16,18 @@ const AnonymousMenu = () => {
   );
 };
 
-const AuthMenu = () => {
-  return <ProfileButton />;
+const AuthMenu = ({ isLight }) => {
+  return <ProfileButton isLight={isLight} />;
 };
 
-export default function Menu({ isAuth }) {
-  return <div>{isAuth ? <AuthMenu /> : <AnonymousMenu />}</div>;
+export default function Menu({ isAuth, isLight }) {
+  return (
+    <div>
+      {isAuth ? (
+        <AuthMenu isLight={isLight} />
+      ) : (
+        <AnonymousMenu isLight={isLight} />
+      )}
+    </div>
+  );
 }

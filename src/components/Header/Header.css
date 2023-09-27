@@ -4,16 +4,18 @@
   justify-content: space-between;
   background: #073042;
   padding: 18px 70px;
+  color: #fff;
 }
 
 .header__nav-list {
   display: flex;
   list-style: none;
   gap: 16px;
+  margin: 0;
 }
 
 .header__nav-list-link {
-  color: #fff;
+  color: inherit;
   text-align: right;
   font-family: Inter;
   font-size: 13px;
@@ -24,4 +26,9 @@
 
 .header__nav-list-link_active {
   font-weight: 500;
+}
+
+.header__theme-light {
+  background: #ffffff;
+  color: #000000;
 }

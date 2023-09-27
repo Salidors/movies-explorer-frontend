@@ -21,3 +21,7 @@
   font-weight: 500;
   line-height: 12px;
 }
+
+.profile__btn-theme-light {
+  background: #ffffff;
+}

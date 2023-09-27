@@ -11,7 +11,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
-  const isAuth = false;
+  const isAuth = true;
 
   return (
     <div className='app'>

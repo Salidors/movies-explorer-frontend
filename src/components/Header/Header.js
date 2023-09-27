@@ -37,12 +37,12 @@ const AuthNavigation = () => {
   );
 };
 
-export default function Header({ isAuth }) {
+export default function Header({ isAuth, isLight }) {
   return (
-    <header className='header'>
+    <header className={`header ${isLight ? 'header__theme-light' : ''}`}>
       <img src={logo} alt='logo' />
       {isAuth && <AuthNavigation />}
-      <Menu isAuth={isAuth} />
+      <Menu isAuth={isAuth} isLight={isLight} />
     </header>
   );
 }
