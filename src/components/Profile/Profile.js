@@ -12,6 +12,7 @@ export default function Profile() {
   } = useCurrentUser();
   const [name, setName] = useState(currentName);
   const [nameError, setNameError] = useState('');
+
   const [email, setEmail] = useState(currentEmail);
   const [emailError, setEmailError] = useState('');
 

@@ -22,7 +22,7 @@ const AuthMenu = ({ isLight, onAccountClick }) => {
   const { windowSize } = useWindowSize();
 
   if (windowSize <= 1280)
-    return <Burger isLight={isLight} onClick={onAccountClick} />;
+    return <Burger isLight={isLight} onAccountClick={onAccountClick} />;
   return <ProfileButton isLight={isLight} onClick={onAccountClick} />;
 };
 
