@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 66px;
+  gap: 49px;
 }
 
 .me__private-description-container {
@@ -43,7 +44,6 @@
 }
 
 .me__private-about {
-  width: 600px;
   color: #000;
   font-family: Inter;
   font-size: 14px;
@@ -72,4 +72,31 @@
   font-weight: 500;
   line-height: normal;
   margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .me {
+    padding: 90px 50px 0;
+  }
+
+  .me__private-name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+  }
+
+  .me__private-bio {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .me__private-about {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .me__private-image {
+    width: 255px;
+    height: 307px;
+  }
 }

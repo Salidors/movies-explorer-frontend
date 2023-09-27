@@ -105,3 +105,13 @@
   line-height: 17px;
   margin: 14px 0 0;
 }
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 90px 50px;
+  }
+
+  .about__progress {
+    margin-top: 93px;
+  }
+}

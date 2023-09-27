@@ -13,6 +13,10 @@ import { Context } from '../Context/Context';
 import { useState } from 'react';
 import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
+import {
+  MOVIES_PER_PAGE_DESKTOP,
+  MOVIES_PER_PAGE_TABLET,
+} from '../constants/constants';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -26,6 +30,8 @@ function App() {
   };
 
   const isLight = window.location.pathname !== '/';
+  const moviesPerPage =
+    window.innerWidth <= 768 ? MOVIES_PER_PAGE_TABLET : MOVIES_PER_PAGE_DESKTOP;
 
   return (
     <Context.Provider
@@ -43,8 +49,14 @@ function App() {
             </Route>
             <Route element={<Layout />}>
               <Route index element={<Main />} />
-              <Route path='movies' element={<Movies />} />
-              <Route path='saved-movies' element={<SavedMovies />} />
+              <Route
+                path='movies'
+                element={<Movies moviesPerPage={moviesPerPage} />}
+              />
+              <Route
+                path='saved-movies'
+                element={<SavedMovies moviesPerPage={moviesPerPage} />}
+              />
             </Route>
             <Route path='signout' element={<Signout />} />
           </Route>

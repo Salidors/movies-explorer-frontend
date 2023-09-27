@@ -21,7 +21,7 @@ export default function AboutMe() {
             Github
           </a>
         </div>
-        <img src={userImage} alt='user' />
+        <img src={userImage} alt='user' className='me__private-image'/>
       </div>
     </section>
   );

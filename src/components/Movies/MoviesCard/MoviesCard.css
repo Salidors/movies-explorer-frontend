@@ -57,4 +57,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin: 6px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+
 }

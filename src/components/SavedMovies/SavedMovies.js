@@ -3,11 +3,11 @@ import './SavedMovies.css';
 import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 
-export default function SavedMovies() {
+export default function SavedMovies({ moviesPerPage }) {
   return (
     <main className='movies-page'>
       <SearchForm />
-      <MoviesCardList movies={movies} favorites />
+      <MoviesCardList movies={movies} favorites moviesPerPage={moviesPerPage}  />
     </main>
   );
 }

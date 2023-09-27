@@ -50,7 +50,8 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.56px;
-  margin: 26px auto 0;
+  margin: 26px 0 0;
+  align-self: center;
 }
 
 .techs__list {
@@ -58,7 +59,7 @@
   list-style: none;
   padding: 0;
   gap: 10px;
-  margin: 100px auto 0;
+  margin: 100px 0 0;
 }
 
 .techs__list-item {
@@ -80,4 +81,27 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.56px;
+}
+
+@media screen and (max-width: 768px) {
+  .techs {
+    padding: 90px 50px;
+  }
+
+  .techs__title {
+    margin-bottom: 80px;
+  }
+
+  .techs__list {
+    margin-top: 83px;
+  }
+
+  .techs__list-item {
+    width: 84px;
+    height: 57px;
+  }
+  .techs__list-item-text {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
 }

@@ -49,3 +49,15 @@
   line-height: 50px;
   letter-spacing: -1.2px;
 }
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 90px 50px;
+  }
+
+  .item__text {
+    font-size: 28px;
+    line-height: 50px;
+    letter-spacing: -1.12px;
+  }
+}

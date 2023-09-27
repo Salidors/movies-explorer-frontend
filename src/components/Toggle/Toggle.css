@@ -68,3 +68,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+@media screen and (max-width: 768px) {
+  .toggle {
+    align-self: flex-end;
+  }
+
+  .toggle__text {
+    order: -1;
+  }
+}

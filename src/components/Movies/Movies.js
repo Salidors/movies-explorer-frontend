@@ -1,34 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import './Movies.css';
 import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
-import { MOVIES_PER_PAGE } from '../constants/constants';
 
-export default function Movies() {
-  const startPosition = useRef(0);
-  const endPosition = useRef(MOVIES_PER_PAGE - 1);
-  const [movies, setMovies] = useState(
-    _movies.slice(startPosition.current, endPosition.current + 1)
-  );
-
-  const handleOnMore = () => {
-    startPosition.current += MOVIES_PER_PAGE;
-    endPosition.current += MOVIES_PER_PAGE;
-    setMovies(_movies.slice(startPosition.current, endPosition.current + 1));
-  };
-
+export default function Movies({ moviesPerPage }) {
   return (
     <main className='movies-page'>
       <SearchForm />
-      <MoviesCardList movies={movies} />
-      <button className='btn movies-page__more' onClick={handleOnMore}>
-        Ещё
-      </button>
+      <MoviesCardList movies={movies} moviesPerPage={moviesPerPage} />
     </main>
   );
 }
 
-const _movies = [
+const movies = [
   {
     _id: '6505a76e1608588f5257e314',
     country: 'США',
