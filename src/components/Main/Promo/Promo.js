@@ -12,7 +12,9 @@ export default function Promo() {
         <p className='promo__container-text'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <button className='btn promo__container-btn'>Узнать больше</button>
+        <a className='link promo__container-link' href='#about-project'>
+          Узнать больше
+        </a>
       </div>
       <img className='promo__globus' src={landingLogo} alt='глобус' />
     </section>
