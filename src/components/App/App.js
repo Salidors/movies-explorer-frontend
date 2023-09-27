@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import Layout from '../Layouts/Layout/Layout';
 import LoginLayout from '../Layouts/LoginLayout/LoginLayout';
@@ -17,8 +17,10 @@ import {
   MOVIES_PER_PAGE_DESKTOP,
   MOVIES_PER_PAGE_TABLET,
 } from '../constants/constants';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
+  const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { pathname } = useLocation();
   const isLight = pathname !== '/';
@@ -27,7 +29,7 @@ function App() {
     name: 'Нина Абрамова',
     email: 'abramova.nina.g.@gmail.com',
   });
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
 
   const updateCurrentUser = ({ name, email }) => {
     setCurrentUser({ name, email });
@@ -47,6 +49,15 @@ function App() {
     ? MOVIES_PER_PAGE_TABLET
     : MOVIES_PER_PAGE_DESKTOP;
 
+  const handleOnSignIn = () => {
+    setIsAuth(true);
+    navigate('/');
+  };
+
+  const handleOnSignOut = () => {
+    setIsAuth(false);
+  };
+
   return (
     <Context.Provider
       value={{ currentUser, updateCurrentUser, isAuth, isLight, windowSize }}
@@ -55,10 +66,19 @@ function App() {
         <Routes>
           <Route path='/'>
             <Route element={<LoginLayout />}>
-              <Route path='signin' element={<Signin />} />
+              <Route
+                path='signin'
+                element={<Signin onSignIn={handleOnSignIn} />}
+              />
               <Route path='signup' element={<Signup />} />
             </Route>
-            <Route element={<EmptyFooterLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <EmptyFooterLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route path='profile' element={<Profile />} />
             </Route>
             <Route element={<Layout />}>
@@ -72,7 +92,10 @@ function App() {
                 element={<SavedMovies moviesPerPage={moviesPerPage} />}
               />
             </Route>
-            <Route path='signout' element={<Signout />} />
+            <Route
+              path='signout'
+              element={<Signout onSignOut={handleOnSignOut} />}
+            />
           </Route>
           <Route path='*' element={<PageNotFound />} />
         </Routes>
