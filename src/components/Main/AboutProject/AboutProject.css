@@ -115,3 +115,40 @@
     margin-top: 93px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 70px 18px;
+  }
+
+  .about__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .about__list-title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .about__list-text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about__progress_title {
+    font-size: 11px;
+  }
+
+  .about__progress-item-text {
+    font-size: 11px;
+  }
+
+  .about__list {
+    flex-wrap: wrap;
+  }
+
+  .about__progress {
+    margin-top: 60px;
+  }
+}

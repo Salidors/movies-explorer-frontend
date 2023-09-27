@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
   font-family: Inter;
   font-size: 12px;
@@ -76,6 +76,7 @@
     font-weight: 400;
     line-height: 50px;
     margin-top: 48px;
+    max-width: 680px;
   }
 
   .promo__container {
@@ -89,5 +90,26 @@
 
   .promo__container-link {
     margin-top: 92px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .promo {
+    padding: 70px 18px 30px;
+  }
+
+  .promo__container-title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+
+  .promo__container-text {
+    font-size: 13px;
+    margin-top: 22px;
+  }
+
+  .promo__container-link {
+    margin-top: 80px;
   }
 }

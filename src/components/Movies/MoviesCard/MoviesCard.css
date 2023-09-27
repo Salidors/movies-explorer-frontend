@@ -61,5 +61,14 @@
 }
 
 @media screen and (max-width: 1280px) {
+}
 
+@media screen and (max-width: 768px) {
+  .movies__title {
+    font-size: 12px;
+  }
+
+  .movies__duration {
+    font-size: 10px;
+  }
 }

@@ -23,7 +23,7 @@ const AuthMenu = ({ isLight, onAccountClick }) => {
 
   if (windowSize <= 1280)
     return <Burger isLight={isLight} onAccountClick={onAccountClick} />;
-  return <ProfileButton isLight={isLight} onClick={onAccountClick} />;
+  return <ProfileButton isLight={isLight} />;
 };
 
 export default function Navigation({ isAuth, isLight, onAccountClick }) {

@@ -6,6 +6,7 @@ export default function ProtectedRoute({
   redirectPath = '/',
   children,
 }) {
+  console.log({isAuth, children});
   if (!isAuth) {
     return <Navigate to={redirectPath} replace />;
   }

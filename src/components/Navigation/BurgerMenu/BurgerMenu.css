@@ -12,7 +12,9 @@
 
 .burger-menu__close-btn {
   width: fit-content;
-  align-self: flex-end;
+  position: absolute;
+  top: 12px;
+  right: 12px
 }
 
 .burger-menu__list {
@@ -62,4 +64,10 @@
   margin: 0;
   z-index: 20;
   padding: 24px 90px 90px;
+}
+
+@media screen and (max-width: 768px) {
+  .burger-menu__content {
+    padding: 144px 70px 46px;
+  }
 }

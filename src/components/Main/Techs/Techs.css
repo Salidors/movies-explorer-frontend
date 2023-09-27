@@ -106,3 +106,39 @@
     letter-spacing: -0.48px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .techs {
+    padding: 70px 18px;
+  }
+
+  .techs__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    margin-bottom: 60px;
+  }
+
+  .techs__description-title {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+
+  .techs__description-text {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+
+  .techs__list {
+    margin-top: 50px;
+  }
+
+  .techs__list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .techs__description-text {
+    width: auto;
+  }
+}

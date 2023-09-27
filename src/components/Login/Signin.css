@@ -94,3 +94,9 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media screen and (max-width: 768px) {
+  .signin__form-title {
+    text-align: center;
+  }
+}

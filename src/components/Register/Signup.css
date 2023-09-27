@@ -94,3 +94,9 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media screen and (max-width: 768px) {
+  .signup__form-title {
+    text-align: center;
+  }
+}

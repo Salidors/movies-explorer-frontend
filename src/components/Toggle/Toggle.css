@@ -78,3 +78,14 @@ input:checked + .slider:before {
     order: -1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .toggle {
+    align-self: center;
+  }
+
+  .toggle__text {
+    font-size: 11px;
+    line-height: 18px;
+  }
+}

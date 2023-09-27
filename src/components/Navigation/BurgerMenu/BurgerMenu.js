@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import close from '../../../images/close.svg';
 import ProfileButton from '../ProfileButton/ProfileButton';
 
-export default function BurgerMenu({ onAccountClick, onClose }) {
+export default function BurgerMenu({ onClose }) {
   return (
     <>
       <div className='burger-menu__overlay' />
@@ -42,7 +42,7 @@ export default function BurgerMenu({ onAccountClick, onClose }) {
           </li>
         </ul>
         <div className='burger-menu__btn-container'>
-          <ProfileButton isLight={true} onClick={onAccountClick} />
+          <ProfileButton isLight={true} />
         </div>
       </nav>
     </>

@@ -74,22 +74,39 @@ function App() {
             </Route>
             <Route
               element={
-                <ProtectedRoute>
+                <ProtectedRoute isAuth={isAuth}>
                   <EmptyFooterLayout />
                 </ProtectedRoute>
               }
             >
-              <Route path='profile' element={<Profile />} />
+              <Route
+                path='profile'
+                element={
+                  <ProtectedRoute isAuth={isAuth}>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
             </Route>
             <Route element={<Layout />}>
               <Route index element={<Main />} />
+
               <Route
                 path='movies'
-                element={<Movies moviesPerPage={moviesPerPage} />}
+                element={
+                  <ProtectedRoute isAuth={isAuth}>
+                    <Movies moviesPerPage={moviesPerPage} />
+                  </ProtectedRoute>
+                }
               />
+
               <Route
                 path='saved-movies'
-                element={<SavedMovies moviesPerPage={moviesPerPage} />}
+                element={
+                  <ProtectedRoute isAuth={isAuth}>
+                    <SavedMovies moviesPerPage={moviesPerPage} />
+                  </ProtectedRoute>
+                }
               />
             </Route>
             <Route
