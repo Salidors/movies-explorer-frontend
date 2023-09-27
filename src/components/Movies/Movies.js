@@ -2,21 +2,21 @@ import React, { useRef, useState } from 'react';
 import './Movies.css';
 import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
-
-const imagesPerPage = 16;
+import { MOVIES_PER_PAGE } from '../constants/constants';
 
 export default function Movies() {
   const startPosition = useRef(0);
-  const endPosition = useRef(imagesPerPage - 1);
+  const endPosition = useRef(MOVIES_PER_PAGE - 1);
   const [movies, setMovies] = useState(
     _movies.slice(startPosition.current, endPosition.current + 1)
   );
 
   const handleOnMore = () => {
-    startPosition.current += imagesPerPage;
-    endPosition.current += imagesPerPage;
+    startPosition.current += MOVIES_PER_PAGE;
+    endPosition.current += MOVIES_PER_PAGE;
     setMovies(_movies.slice(startPosition.current, endPosition.current + 1));
   };
+
   return (
     <main className='movies-page'>
       <SearchForm />
@@ -27,6 +27,7 @@ export default function Movies() {
     </main>
   );
 }
+
 const _movies = [
   {
     _id: '6505a76e1608588f5257e314',
