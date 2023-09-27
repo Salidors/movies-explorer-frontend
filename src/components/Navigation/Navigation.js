@@ -2,6 +2,8 @@ import React from 'react';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
 import ProfileButton from './ProfileButton/ProfileButton';
+import Burger from './Burger/Burger';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const AnonymousMenu = () => {
   return (
@@ -17,6 +19,10 @@ const AnonymousMenu = () => {
 };
 
 const AuthMenu = ({ isLight, onAccountClick }) => {
+  const { windowSize } = useWindowSize();
+
+  if (windowSize <= 1280)
+    return <Burger isLight={isLight} onClick={onAccountClick} />;
   return <ProfileButton isLight={isLight} onClick={onAccountClick} />;
 };
 

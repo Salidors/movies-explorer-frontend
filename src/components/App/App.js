@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Layout from '../Layouts/Layout/Layout';
 import LoginLayout from '../Layouts/LoginLayout/LoginLayout';
@@ -10,7 +10,7 @@ import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { Context } from '../Context/Context';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
 import {
@@ -19,6 +19,10 @@ import {
 } from '../constants/constants';
 
 function App() {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const { pathname } = useLocation();
+  const isLight = pathname !== '/';
+
   const [currentUser, setCurrentUser] = useState({
     name: 'Нина Абрамова',
     email: 'abramova.nina.g.@gmail.com',
@@ -29,13 +33,23 @@ function App() {
     setCurrentUser({ name, email });
   };
 
-  const isLight = window.location.pathname !== '/';
-  const moviesPerPage =
-    window.innerWidth <= 768 ? MOVIES_PER_PAGE_TABLET : MOVIES_PER_PAGE_DESKTOP;
+  const memoizedCallback = useCallback(() => {
+    setWindowSize(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', memoizedCallback);
+    return () => window.removeEventListener('resize', memoizedCallback);
+  }, [memoizedCallback]);
+
+  const isTablet = windowSize <= 1280;
+  const moviesPerPage = isTablet
+    ? MOVIES_PER_PAGE_TABLET
+    : MOVIES_PER_PAGE_DESKTOP;
 
   return (
     <Context.Provider
-      value={{ currentUser, updateCurrentUser, isAuth, isLight }}
+      value={{ currentUser, updateCurrentUser, isAuth, isLight, windowSize }}
     >
       <div className='app'>
         <Routes>

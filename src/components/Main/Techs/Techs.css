@@ -83,7 +83,7 @@
   letter-spacing: -0.56px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .techs {
     padding: 90px 50px;
   }
