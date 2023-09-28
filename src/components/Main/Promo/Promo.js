@@ -7,7 +7,7 @@ export default function Promo() {
     <section className='promo'>
       <div className='promo__container'>
         <h2 className='promo__container-title'>
-          Учебный проект студента факультета Веб-разработки.
+          Учебный проект студента факультета Веб&#8209;разработки.
         </h2>
         <p className='promo__container-text'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
