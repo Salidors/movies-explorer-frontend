@@ -11,7 +11,7 @@ export default function Burger({ isLight, onAccountClick }) {
   document.body.style.overflow = open ? 'hidden' : '';
   return (
     <>
-      <button onClick={toggleOpen} className='btn burger'>
+      <button onClick={toggleOpen} className='btn burger' type="button">
         <img src={isLight ? burger : burgerLight} alt='burger' />
       </button>
 

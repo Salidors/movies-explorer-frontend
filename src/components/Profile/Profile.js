@@ -82,7 +82,7 @@ export default function Profile() {
           <button
             className={'btn profile__btn-save'}
             disabled={isSubmitDisabled}
-            onClick={() => updateCurrentUser({ name, email })}
+            onClick={() => updateCurrentUser({ name, email })} type="button"
           >
             Редактировать
           </button>

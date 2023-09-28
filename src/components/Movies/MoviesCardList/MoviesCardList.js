@@ -35,7 +35,7 @@ export default function MoviesCardList({
         ))}
       </ul>
       {movies.length > 0 && (
-        <button className='btn movies-page__more' onClick={handleOnMore}>
+        <button className='btn movies-page__more' onClick={handleOnMore} type='button'>
           Ещё
         </button>
       )}
