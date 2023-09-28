@@ -1,24 +1,24 @@
-import React from 'react';
-import './AboutProject.css';
+import React from "react";
+import "./AboutProject.css";
 
 export default function AboutProject() {
   return (
     <section className='about' id='about-project'>
-      <h3 className='about__title about__title-line'>О проекте</h3>
+      <h2 className='about__title about__title-line'>О проекте</h2>
       <ul className='about__list'>
         <li className='about__list-item'>
-          <h4 className='about__list-title'>
+          <h3 className='about__list-title'>
             Дипломный проект включал 5 этапов
-          </h4>
+          </h3>
           <p className='about__list-text'>
             Составление плана, работу над бэкендом, вёрстку, добавление
             функциональности и финальные доработки.
           </p>
         </li>
         <li className='about__list-item'>
-          <h4 className='about__list-title'>
+          <h3 className='about__list-title'>
             На выполнение диплома ушло 5 недель
-          </h4>
+          </h3>
           <p className='about__list-text'>
             У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было
             соблюдать, чтобы успешно защититься.

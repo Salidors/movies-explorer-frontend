@@ -1,6 +1,6 @@
-import React from 'react';
-import './Signup.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Signup.css";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   return (
@@ -19,7 +19,9 @@ export default function Signup() {
           <label className='signup__input-label'>Пароль</label>
           <input type='password' className='signup__input' />
         </div>
-        <button className='btn signup__form-button'>Зарегистрироваться</button>
+        <button className='btn signup__form-button' type='button'>
+          Зарегистрироваться
+        </button>
         <nav className='signup__form-nav'>
           <span className='signup__form-text'>Уже зарегистрированы?</span>
           <Link to='/signin' className='link signup__form-link'>

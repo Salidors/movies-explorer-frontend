@@ -1,6 +1,6 @@
-import React from 'react';
-import './Portfolio.css';
-import openArrow from '../../../images/open-arrow.svg';
+import React from "react";
+import "./Portfolio.css";
+import openArrow from "../../../images/open-arrow.svg";
 
 export default function Portfolio() {
   return (

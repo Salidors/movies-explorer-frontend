@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
-import './MoviesCardList.css';
-import MoviesCard from '../MoviesCard/MoviesCard';
+import React, { useRef, useState } from "react";
+import "./MoviesCardList.css";
+import MoviesCard from "../MoviesCard/MoviesCard";
 
 export default function MoviesCardList({
   movies = [],
@@ -35,7 +35,11 @@ export default function MoviesCardList({
         ))}
       </ul>
       {movies.length > 0 && (
-        <button className='btn movies-page__more' onClick={handleOnMore}>
+        <button
+          className='btn movies-page__more'
+          onClick={handleOnMore}
+          type='button'
+        >
           Ещё
         </button>
       )}

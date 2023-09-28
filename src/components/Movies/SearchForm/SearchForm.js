@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './SearchForm.css';
-import Toggle from '../../Toggle/Toggle';
+import React, { useState } from "react";
+import "./SearchForm.css";
+import Toggle from "../../Toggle/Toggle";
 
 export default function SearchForm({ onSearch }) {
   const [isToggled, setIsToggled] = useState(true);
@@ -13,7 +13,11 @@ export default function SearchForm({ onSearch }) {
           className='form-search__container-input'
           placeholder='Фильм'
         />
-        <button className='form-search__container-button' onClick={onSearch}>
+        <button
+          className='form-search__container-button'
+          onClick={onSearch}
+          type='button'
+        >
           Найти
         </button>
       </div>
