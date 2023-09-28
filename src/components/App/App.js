@@ -56,6 +56,7 @@ function App() {
 
   const handleOnSignOut = () => {
     setIsAuth(false);
+    navigate('/');
   };
 
   return (
