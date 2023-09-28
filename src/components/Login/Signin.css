@@ -99,4 +99,16 @@
   .signin__form-title {
     text-align: center;
   }
+
+  .signin__form-button {
+    font-size: 12px;
+  }
+
+  .signin__form-text {
+    font-size: 12px;
+  }
+
+  .signin__form-link {
+    font-size: 12px;
+  }
 }

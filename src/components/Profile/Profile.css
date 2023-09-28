@@ -1,6 +1,6 @@
 .profile {
   margin: 74px auto;
-  width: 410px;
+  max-width: 410px;
   height: calc(100vh - 250px);
 }
 

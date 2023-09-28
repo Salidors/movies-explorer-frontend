@@ -99,4 +99,16 @@
   .signup__form-title {
     text-align: center;
   }
+
+  .signup__form-button {
+    font-size: 12px;
+  }
+
+  .signup__form-text {
+    font-size: 12px;
+  }
+
+  .signup__form-link {
+    font-size: 12px;
+  }
 }
