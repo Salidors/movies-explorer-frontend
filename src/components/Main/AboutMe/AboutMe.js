@@ -17,7 +17,7 @@ export default function AboutMe() {
 В 2020 году появилась на свет младшая (4я) дочь. А вместе с ней и множество возможностей. Занялась саморазвитием и повышением профессиональных навыков.
 Всегда было интересно делать что-то руками и сразу видеть результат. Так я дошла до HTML и CSS, а позже до фронтенд разработки.
           </p>
-          <a href='https://github.com/Salidors' className='link me__private-github'>
+          <a href='https://github.com/Salidors' className='link me__private-github' target='_blank'>
             Github
           </a>
         </div>
