@@ -24,7 +24,7 @@ export default function Footer() {
             <li className='footer__nav-list-item'>
               <a
                 className='footer__nav-list-link link'
-                href='https://github.com/Sibusky'
+                href='https://github.com/Salidors'
                 target='_blank'
                 rel='noreferrer'
               >
