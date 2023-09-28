@@ -43,7 +43,7 @@ export default function Header({ isAuth, isLight, onAccountClick }) {
   return (
     <header className={`header ${isLight ? 'header__theme-light' : ''}`}>
       <Link to='/' className='header__logo-link'>
-        <img src={logo} alt='logo' />
+        <img src={logo} alt='логотип' />
       </Link>
       {isAuth && windowSize > 1280 && <AuthNavigation />}
       <Navigation

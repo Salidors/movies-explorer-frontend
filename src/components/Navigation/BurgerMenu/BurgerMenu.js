@@ -10,7 +10,7 @@ export default function BurgerMenu({ onClose }) {
       <div className='burger-menu__overlay' />
       <nav className='burger-menu__content'>
         <button className='btn burger-menu__close-btn' onClick={onClose}>
-          <img src={close} alt='close' />
+          <img src={close} alt='закрыть' />
         </button>
         <ul className='burger-menu__list'>
           <li className='burger-menu__list-item'>

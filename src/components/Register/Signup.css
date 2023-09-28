@@ -11,7 +11,7 @@
 
 .signup__form-title {
   color: #000;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -26,7 +26,7 @@
   gap: 5px;
 
   color: #000;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -35,7 +35,7 @@
 
 .signup__input-label {
   color: #a0a0a0;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -56,7 +56,7 @@
   border: none;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -78,7 +78,7 @@
 .signup__form-text {
   color: #a0a0a0;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -88,7 +88,7 @@
 .signup__form-link {
   color: #3456f3;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

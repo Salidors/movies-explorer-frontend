@@ -12,7 +12,7 @@ export default function Burger({ isLight, onAccountClick }) {
   return (
     <>
       <button onClick={toggleOpen} className='btn burger'>
-        <img src={isLight ? burger : burgerLight} alt='burger' />
+        <img src={isLight ? burger : burgerLight} alt='меню' />
       </button>
 
       {open && (

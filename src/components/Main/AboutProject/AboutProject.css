@@ -5,7 +5,7 @@
 
 .about__title {
   color: #000;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -34,7 +34,7 @@
 
 .about__list-text {
   color: #000;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +44,7 @@
 
 .about__list-title {
   color: #000;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -87,7 +87,7 @@
 .about__progress_title {
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -98,7 +98,7 @@
 .about__progress-item-text {
   color: #a0a0a0;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
