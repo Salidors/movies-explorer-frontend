@@ -39,7 +39,7 @@ export default function Profile() {
         ref={refForm}
       >
         <div className='profile__form-container'>
-          <h2 className='profile__form-title'>Привет, {currentName}!</h2>
+          <h1 className='profile__form-title'>Привет, {currentName}!</h1>
           <div className='profile__form-input profile__form-input-email'>
             <label
               className='profile__input-label'

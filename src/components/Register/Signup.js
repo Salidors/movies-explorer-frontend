@@ -6,7 +6,7 @@ export default function Signup() {
   return (
     <main className='signup'>
       <form className='signup__form'>
-        <h2 className='signup__form-title'>Добро пожаловать!</h2>
+        <h1 className='signup__form-title'>Добро пожаловать!</h1>
         <div className='signup__form-input signup__form-input-email'>
           <label className='signup__input-label'>Имя</label>
           <input type='text' className='signup__input' />

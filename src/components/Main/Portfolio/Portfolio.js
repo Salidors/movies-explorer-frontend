@@ -5,7 +5,7 @@ import openArrow from "../../../images/open-arrow.svg";
 export default function Portfolio() {
   return (
     <section className='portfolio'>
-      <h4 className='portfolio__title'>Портфолио</h4>
+      <h2 className='portfolio__title'>Портфолио</h2>
       <nav className='portfolio__nav'>
         <ul className='portfolio__nav-list'>
           <li className='portfolio__nav-list-item'>

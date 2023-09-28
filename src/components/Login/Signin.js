@@ -26,7 +26,7 @@ export default function Signin({ onSignIn }) {
   return (
     <main className='signin'>
       <form className='signin__form' ref={refForm}>
-        <h2 className='signin__form-title'>Рады видеть!</h2>
+        <h1 className='signin__form-title'>Рады видеть!</h1>
         <div className='signin__form-input signin__form-input-email'>
           <label className='signin__input-label'>E-mail</label>
           <input
