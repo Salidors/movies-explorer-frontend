@@ -53,7 +53,7 @@ export default function Signin({ onSignIn }) {
           className='btn signin__form-button'
           onClick={onSignIn}
           value={email}
-          disabled={isSubmitDisabled}
+          disabled={isSubmitDisabled} type='button'
         >
           Войти
         </button>
