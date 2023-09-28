@@ -1,0 +1,13 @@
+.signout {
+  display: flex;
+  justify-content: center;
+}
+
+.signout__exit {
+  color: #000;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}

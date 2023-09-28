@@ -1,0 +1,102 @@
+.signin {
+  margin-top: 40px;
+  height: 100%;
+}
+
+.signin__form {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.signin__form-title {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.signin__form-input {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.signin__input-label {
+  color: #a0a0a0;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signin__input {
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  outline: none;
+  padding-bottom: 10px;
+}
+
+.signin__form-button {
+  height: 45px;
+  border-radius: 3px;
+  background: #3456f3;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: auto;
+}
+
+.signin__form-input-email {
+  margin-bottom: 24px;
+}
+
+.signin__form-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 16px 0 70px;
+}
+
+.signin__form-text {
+  color: #a0a0a0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signin__form-link {
+  color: #3456f3;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .signin__form-title {
+    text-align: center;
+  }
+}

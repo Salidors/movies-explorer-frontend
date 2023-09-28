@@ -1,0 +1,11 @@
+.movies-page {
+  display: flex;
+  flex-flow: column;
+  padding: 70px 70px 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  .movies-page {
+    padding: 80px 30px;
+  }
+}
