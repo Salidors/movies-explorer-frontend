@@ -30,64 +30,64 @@ export default function Profile() {
 
   const isSubmitDisabled = Boolean(emailError);
   return (
-    <main className="profile">
+    <main className='profile'>
       <form
-        className="profile__form"
+        className='profile__form'
         onSubmit={(event) => {
           event.preventDefault();
         }}
         ref={refForm}
       >
-        <div className="profile__form-container">
-          <h2 className="profile__form-title">Привет, {currentName}!</h2>
-          <div className="profile__form-input profile__form-input-email">
+        <div className='profile__form-container'>
+          <h2 className='profile__form-title'>Привет, {currentName}!</h2>
+          <div className='profile__form-input profile__form-input-email'>
             <label
-              className="profile__input-label"
-              htmlFor="profile__input-name"
+              className='profile__input-label'
+              htmlFor='profile__input-name'
             >
               Имя
             </label>
             <input
-              id="profile__input-name"
-              type="text"
-              className="profile__input"
+              id='profile__input-name'
+              type='text'
+              className='profile__input'
               required
-              minLength="2"
-              maxLength="30"
+              minLength='2'
+              maxLength='30'
               placeholder={currentName}
-              pattern="^(?!\s)[A-Za-zА-Яа-я\-\s]+$"
-              name="name"
+              pattern='^(?!\s)[A-Za-zА-Яа-я\-\s]+$'
+              name='name'
               onChange={handleOnNameChange}
               value={name}
             />
           </div>
-          <p className="profile__error">{nameError}</p>
-          <div className="profile__form-input profile__form-input-email">
-            <label className="profile__input-label">E-mail</label>
+          <p className='profile__error'>{nameError}</p>
+          <div className='profile__form-input profile__form-input-email'>
+            <label className='profile__input-label'>E-mail</label>
             <input
-              type="email"
-              className="profile__input"
-              id="profile__input-email"
+              type='email'
+              className='profile__input'
+              id='profile__input-email'
               placeholder={email}
-              pattern="^.+@.+\..+$"
-              name="email"
+              pattern='^.+@.+\..+$'
+              name='email'
               onChange={handleOnEmailChange}
               value={email}
               required
             />
           </div>
-          <p className="profile__error">{emailError}</p>
+          <p className='profile__error'>{emailError}</p>
         </div>
-        <nav className="profile__form-nav">
+        <nav className='profile__form-nav'>
           <button
             className={"btn profile__btn-save"}
             disabled={isSubmitDisabled}
             onClick={() => updateCurrentUser({ name, email })}
-            type="button"
+            type='button'
           >
             Редактировать
           </button>
-          <Link to="/signout" className="link profile__form-link">
+          <Link to='/signout' className='link profile__form-link'>
             Выйти из аккаунта
           </Link>
         </nav>

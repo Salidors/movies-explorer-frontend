@@ -4,13 +4,13 @@ import userImage from "../../../images/userImage.png";
 
 export default function AboutMe() {
   return (
-    <section className="me">
-      <h3 className="me__title me__title-line">Студент</h3>
-      <div className="me__private-container">
-        <div className="me__private-description-container">
-          <h3 className="me__private-name">Нина</h3>
-          <p className="me__private-bio">Фронтенд-разработчик, 38 лет</p>
-          <p className="me__private-about">
+    <section className='me'>
+      <h3 className='me__title me__title-line'>Студент</h3>
+      <div className='me__private-container'>
+        <div className='me__private-description-container'>
+          <h3 className='me__private-name'>Нина</h3>
+          <p className='me__private-bio'>Фронтенд-разработчик, 38 лет</p>
+          <p className='me__private-about'>
             Мой жизненный путь начался в далеком Казахстане, родилась и окончила
             школу в маленьком но уютном провинциальном городке Сарани. Затем
             переехала и поступила в университет в городе Караганда. Отучившись
@@ -24,15 +24,15 @@ export default function AboutMe() {
             до HTML и CSS, а позже до фронтенд разработки.
           </p>
           <a
-            href="https://github.com/Salidors"
-            className="link me__private-github"
-            target="_blank"
-            rel="noreferrer"
+            href='https://github.com/Salidors'
+            className='link me__private-github'
+            target='_blank'
+            rel='noreferrer'
           >
             Github
           </a>
         </div>
-        <img src={userImage} alt="user" className="me__private-image" />
+        <img src={userImage} alt='user' className='me__private-image' />
       </div>
     </section>
   );
