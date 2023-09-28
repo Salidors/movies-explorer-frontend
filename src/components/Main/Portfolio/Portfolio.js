@@ -9,7 +9,7 @@ export default function Portfolio() {
       <nav className='portfolio__nav'>
         <ul className='portfolio__nav-list'>
           <li className='portfolio__nav-list-item'>
-            <a href='https://github.com/Salidors/how-to-learn' className='link portfolio__links-item'>
+            <a href='https://salidors.github.io/how-to-learn/' className='link portfolio__links-item'>
               <span className='item__text'>Статичный сайт</span>
               <img src={openArrow} alt='open' />
             </a>
