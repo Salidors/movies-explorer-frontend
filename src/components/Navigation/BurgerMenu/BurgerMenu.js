@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 import close from '../../../images/close.svg';
 import ProfileButton from '../ProfileButton/ProfileButton';
 
-export default function BurgerMenu({ onClose }) {
+export default function BurgerMenu({ onClose, burgerRef }) {
   return (
     <>
       <div className='burger-menu__overlay' />
-      <nav className='burger-menu__content'>
+      <nav className='burger-menu__content' ref={burgerRef}>
         <button
           className='btn burger-menu__close-btn'
           onClick={onClose}
