@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
-import "./Profile.css";
-import { Link } from "react-router-dom";
-import { useCurrentUser } from "../hooks/useCurrentUser";
+import React, { useRef, useState } from 'react';
+import './Profile.css';
+import { Link } from 'react-router-dom';
+import { useCurrentUser } from '../hooks/useCurrentUser';
 
 export default function Profile() {
   const refForm = useRef(null);
@@ -11,33 +11,28 @@ export default function Profile() {
     updateCurrentUser,
   } = useCurrentUser();
   const [name, setName] = useState(currentName);
-  const [nameError, setNameError] = useState("");
+  const [nameError, setNameError] = useState('');
 
   const [email, setEmail] = useState(currentEmail);
-  const [emailError, setEmailError] = useState("");
+  const [emailError, setEmailError] = useState('');
 
   const handleOnNameChange = (event) => {
-    if (refForm.current.checkValidity()) setNameError("");
+    if (refForm.current.checkValidity()) setNameError('');
     else setNameError(event.target.validationMessage);
     setName(event.currentTarget.value);
   };
 
   const handleOnEmailChange = (event) => {
-    if (refForm.current.checkValidity()) setEmailError("");
+    if (refForm.current.checkValidity()) setEmailError('');
     else setEmailError(event.target.validationMessage);
     setEmail(event.currentTarget.value);
   };
 
-  const isSubmitDisabled = Boolean(emailError);
+  const isSubmitDisabled = Boolean(nameError || emailError);
+  console.log({ nameError, emailError, isSubmitDisabled });
   return (
     <main className='profile'>
-      <form
-        className='profile__form'
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-        ref={refForm}
-      >
+      <form className='profile__form' ref={refForm}>
         <div className='profile__form-container'>
           <h1 className='profile__form-title'>Привет, {currentName}!</h1>
           <div className='profile__form-input profile__form-input-email'>
@@ -52,11 +47,10 @@ export default function Profile() {
               type='text'
               className='profile__input'
               required
-              minLength='2'
-              maxLength='30'
+              minLength={2}
+              maxLength={30}
               placeholder={currentName}
               pattern='^(?!\s)[A-Za-zА-Яа-я\-\s]+$'
-              name='name'
               onChange={handleOnNameChange}
               value={name}
             />
@@ -70,7 +64,6 @@ export default function Profile() {
               id='profile__input-email'
               placeholder={email}
               pattern='^.+@.+\..+$'
-              name='email'
               onChange={handleOnEmailChange}
               value={email}
               required
@@ -80,10 +73,10 @@ export default function Profile() {
         </div>
         <nav className='profile__form-nav'>
           <button
-            className={"btn profile__btn-save"}
-            disabled={isSubmitDisabled}
+            className={'btn profile__btn-save'}
             onClick={() => updateCurrentUser({ name, email })}
             type='button'
+            disabled={isSubmitDisabled}
           >
             Редактировать
           </button>

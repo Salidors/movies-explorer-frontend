@@ -64,6 +64,11 @@
   margin-top: auto;
 }
 
+.signup__form-button:disabled {
+  background: #f9f9f9;
+  color: #000;
+}
+
 .signup__form-input-email {
   margin-bottom: 24px;
 }

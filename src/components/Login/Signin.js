@@ -11,6 +11,8 @@ export default function Signin({ onSignIn }) {
   const [error, setError] = useState();
 
   const handleOnPasswordChange = (event) => {
+    if (refForm.current.checkValidity()) setError('');
+    else setError(event.target.validationMessage);
     setPassword(event.currentTarget.value);
   };
   const isFormValid = refForm.current && refForm.current.checkValidity();
@@ -31,10 +33,10 @@ export default function Signin({ onSignIn }) {
           <label className='signin__input-label'>E-mail</label>
           <input
             type='email'
-            pattern='^.+@.+\..+$'
             className='signin__input'
             value={email}
             onChange={handleOnEmailChange}
+            pattern='^.+@.+\..+$'
             required
           />
         </div>
@@ -46,6 +48,8 @@ export default function Signin({ onSignIn }) {
             value={password}
             onChange={handleOnPasswordChange}
             required
+            minLength={2}
+            maxLength={30}
           />
         </div>
         <p className='profile__error'>{error}</p>
@@ -53,7 +57,8 @@ export default function Signin({ onSignIn }) {
           className='btn signin__form-button'
           onClick={onSignIn}
           value={email}
-          disabled={isSubmitDisabled} type='button'
+          disabled={isSubmitDisabled}
+          type='button'
         >
           Войти
         </button>
