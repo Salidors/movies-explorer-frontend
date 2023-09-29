@@ -19,7 +19,6 @@ export default function Portfolio() {
               <img src={openArrow} alt='открыть' />
             </a>
           </li>
-          <div className='line-light' />
           <li className='portfolio__nav-list-item'>
             <a
               href='https://salidors.github.io/russian-travel/'
@@ -31,7 +30,6 @@ export default function Portfolio() {
               <img src={openArrow} alt='открыть' />
             </a>
           </li>
-          <div className='line-light' />
           <li className='portfolio__nav-list-item'>
             <a
               href='https://salidors.github.io/mesto/'

@@ -5,7 +5,7 @@ import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import Preloader from '../Movies/Preloader/Preloader';
 
 export default function SavedMovies({ moviesPerPage }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(_movies);
   const [isLoading, setIsLoading] = useState(false);
   const handleOnSearch = useCallback((event) => {
     event.preventDefault();
