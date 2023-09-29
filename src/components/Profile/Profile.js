@@ -31,7 +31,7 @@ export default function Profile() {
   const isSubmitDisabled = Boolean(nameError || emailError);
   console.log({ nameError, emailError, isSubmitDisabled });
   return (
-    <main className='profile'>
+    <section className='profile'>
       <form className='profile__form' ref={refForm}>
         <div className='profile__form-container'>
           <h1 className='profile__form-title'>Привет, {currentName}!</h1>
@@ -85,6 +85,6 @@ export default function Profile() {
           </Link>
         </nav>
       </form>
-    </main>
+    </section>
   );
 }

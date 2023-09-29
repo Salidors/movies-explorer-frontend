@@ -7,14 +7,14 @@ import { useWindowSize } from '../hooks/useWindowSize';
 
 const AnonymousMenu = () => {
   return (
-    <div className='header__anonymous-links'>
+    <nav className='header__anonymous-links'>
       <Link to='/signup' className='link header__anonymous-links-signup'>
         Регистрация
       </Link>
       <Link to='/signin' className='link header__anonymous-signin'>
         Войти
       </Link>
-    </div>
+    </nav>
   );
 };
 

@@ -6,7 +6,7 @@ export default function SearchForm({ onSearch }) {
   const [isToggled, setIsToggled] = useState(true);
 
   return (
-    <form className='form-search'>
+    <section className='form-search'>
       <div className='form-search__container'>
         <input
           type='text'
@@ -22,6 +22,6 @@ export default function SearchForm({ onSearch }) {
         </button>
       </div>
       <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
-    </form>
+    </section>
   );
 }
