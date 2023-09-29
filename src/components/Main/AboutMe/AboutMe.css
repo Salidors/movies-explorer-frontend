@@ -74,6 +74,11 @@
   margin-top: auto;
 }
 
+.me__private-image {
+  width: 270px;
+  height: 307px;
+}
+
 @media screen and (max-width: 1280px) {
   .me {
     padding: 90px 50px 0;
@@ -93,11 +98,6 @@
   .me__private-about {
     font-size: 12px;
     line-height: 18px;
-  }
-
-  .me__private-image {
-    width: 255px;
-    height: 307px;
   }
 }
 

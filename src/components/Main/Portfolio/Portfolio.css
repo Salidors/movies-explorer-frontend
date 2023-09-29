@@ -28,6 +28,7 @@
 .portfolio__links-item {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .portfolio__nav-list-item {
