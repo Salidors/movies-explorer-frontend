@@ -7,13 +7,16 @@ import Preloader from '../Movies/Preloader/Preloader';
 export default function SavedMovies({ moviesPerPage }) {
   const [movies, setMovies] = useState(_movies);
   const [isLoading, setIsLoading] = useState(false);
-  const handleOnSearch = useCallback((event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setMovies(_movies);
-    }, 3000);
+  const handleOnSearch = useCallback((value) => {
+    // setIsLoading(true);
+    // setTimeout(() => {
+    //   setIsLoading(false);
+    //   setMovies(
+    //     _movies.filter(
+    //       (m) => m.nameRU.includes(value) || m.nameEN.includes(value)
+    //     )
+    //   );
+    // }, 3000);
   }, []);
 
   return (

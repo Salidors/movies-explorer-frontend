@@ -7,12 +7,15 @@ import Preloader from './Preloader/Preloader';
 export default function Movies({ moviesPerPage }) {
   const [movies, setMovies] = useState(_movies);
   const [isLoading, setIsLoading] = useState(false);
-  const handleOnSearch = useCallback((event) => {
-    event.preventDefault();
+  const handleOnSearch = useCallback((value) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setMovies(_movies);
+      setMovies(
+        _movies.filter(
+          (m) => m.nameRU.includes(value) || m.nameEN.includes(value)
+        )
+      );
     }, 3000);
   }, []);
 

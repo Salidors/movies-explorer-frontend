@@ -32,7 +32,13 @@ export default function Profile() {
   console.log({ nameError, emailError, isSubmitDisabled });
   return (
     <section className='profile'>
-      <form className='profile__form' ref={refForm}>
+      <form
+        className='profile__form'
+        ref={refForm}
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <div className='profile__form-container'>
           <h1 className='profile__form-title'>Привет, {currentName}!</h1>
           <div className='profile__form-input profile__form-input-email'>

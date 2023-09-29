@@ -27,7 +27,13 @@ export default function Signin({ onSignIn }) {
 
   return (
     <main className='signin'>
-      <form className='signin__form' ref={refForm}>
+      <form
+        className='signin__form'
+        ref={refForm}
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <h1 className='signin__form-title'>Рады видеть!</h1>
         <div className='signin__form-input signin__form-input-email'>
           <label className='signin__input-label'>E-mail</label>
