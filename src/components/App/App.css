@@ -5,10 +5,18 @@
   width: fit-content;
 }
 
+.link:hover {
+  color: #a0a0a0;
+}
+
 .btn {
   cursor: pointer;
   border: none;
   margin: 0;
   padding: 0;
   background: transparent;
+}
+
+.btn:hover {
+  background: #002df3;
 }

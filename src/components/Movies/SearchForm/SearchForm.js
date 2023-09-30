@@ -39,9 +39,10 @@ export default function SearchForm({ onSearch }) {
           required
           value={search}
           onChange={handleOnNameChange}
+          minLength={2}
         />
         <button
-          className='form-search__container-button'
+          className='btn form-search__container-button'
           onClick={handleOnSearch}
           type='button'
           disabled={isSubmitDisabled}

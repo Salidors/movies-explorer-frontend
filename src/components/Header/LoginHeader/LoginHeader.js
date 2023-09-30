@@ -5,7 +5,7 @@ import logo from '../../../images/logo.svg';
 export default function LoginHeader() {
   return (
     <header className='header-login'>
-      <img src={logo} alt='логотип' />
+      <img src={logo} alt='логотип' className='header-login__logo' />
     </header>
   );
 }

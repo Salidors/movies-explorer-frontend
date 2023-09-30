@@ -60,6 +60,10 @@
   margin: 6px 0 0;
 }
 
+.movies__trailer-link:hover {
+  transform: scaleY(1.1);
+}
+
 @media screen and (max-width: 1280px) {
 }
 

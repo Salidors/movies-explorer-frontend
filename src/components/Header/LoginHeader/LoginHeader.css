@@ -5,6 +5,10 @@
   padding: 70px 0 0;
 }
 
+.header-login__logo:hover {
+  transform: scale(1.1);
+}
+
 @media screen and (max-width: 768px) {
   .header-login {
     justify-content: center;

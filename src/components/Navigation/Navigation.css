@@ -27,6 +27,11 @@
   line-height: 16px;
 }
 
+.header__anonymous-signin:hover {
+  background: #049347;
+  color: #ffffff;
+}
+
 @media screen and (max-width: 768px) {
   .header__anonymous-links {
     gap: 14px;
