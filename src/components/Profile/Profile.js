@@ -54,7 +54,7 @@ export default function Profile() {
               required
               minLength={2}
               maxLength={30}
-              placeholder={currentName}
+              placeholder={currentName || 'Введите имя'}
               pattern='^(?!\s)[A-Za-zА-Яа-я\-\s]+$'
               onChange={handleOnNameChange}
               value={name}
@@ -67,7 +67,7 @@ export default function Profile() {
               type='email'
               className='profile__input'
               id='profile__input-email'
-              placeholder={email}
+              placeholder={email || 'Введите емейл'}
               pattern='^.+@.+\..+$'
               onChange={handleOnEmailChange}
               value={email}

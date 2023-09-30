@@ -53,6 +53,7 @@ export default function Signup() {
             maxLength={30}
             value={name}
             onChange={handleOnNameChange}
+            placeholder='Введите имя'
           />
         </div>
         <div className='signup__form-input signup__form-input-email'>
@@ -64,6 +65,7 @@ export default function Signup() {
             required
             value={email}
             onChange={handleOnEmailChange}
+            placeholder='Введите емейл'
           />
         </div>
         <div className='signup__form-input'>
@@ -74,6 +76,9 @@ export default function Signup() {
             required
             value={password}
             onChange={handleOnPasswordChange}
+            placeholder='Введите пароль'
+            minLength={2}
+            maxLength={30}
           />
         </div>
         <p className='profile__error'>{error}</p>

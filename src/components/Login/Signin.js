@@ -44,6 +44,7 @@ export default function Signin({ onSignIn }) {
             onChange={handleOnEmailChange}
             pattern='^.+@.+\..+$'
             required
+            placeholder='Введите емейл'
           />
         </div>
         <div className='signin__form-input'>
@@ -56,6 +57,7 @@ export default function Signin({ onSignIn }) {
             required
             minLength={2}
             maxLength={30}
+            placeholder='Введите пароль'
           />
         </div>
         <p className='profile__error'>{error}</p>
