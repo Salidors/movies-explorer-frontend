@@ -29,7 +29,6 @@ export default function Profile() {
   };
 
   const isSubmitDisabled = Boolean(nameError || emailError);
-  console.log({ nameError, emailError, isSubmitDisabled });
   return (
     <section className='profile'>
       <form

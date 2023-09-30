@@ -27,7 +27,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({
     name: 'Нина Абрамова',
-    email: 'abramova.nina.g.@gmail.com',
+    email: 'abramova.nina.g@gmail.com',
   });
   const [isAuth, setIsAuth] = useState(false);
 

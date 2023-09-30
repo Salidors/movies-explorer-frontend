@@ -20,9 +20,7 @@ export default function SearchForm({ onSearch }) {
     onSearch(search);
   };
 
-  const isFormValid = refForm.current && refForm.current.checkValidity();
-  const isSubmitDisabled = Boolean(!isFormValid);
-
+  const isSubmitDisabled = Boolean(error);
   return (
     <section className='form-search'>
       <form
@@ -40,6 +38,7 @@ export default function SearchForm({ onSearch }) {
           value={search}
           onChange={handleOnNameChange}
           minLength={2}
+          maxLength={30}
         />
         <button
           className='btn form-search__container-button'

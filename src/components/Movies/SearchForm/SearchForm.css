@@ -7,8 +7,7 @@
 .form-search__container {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #e8e8e8;
-  padding-bottom: 13px;
+  position: relative;
 }
 
 .form-search__container-button {
@@ -28,6 +27,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
+  position: absolute;
+  right: 0;
+  top: 2px;
 }
 
 .form-search__container-button:disabled {
@@ -46,6 +48,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 13px;
+}
+
+.form-search__container-input:focus {
+  border-bottom: 1px solid #3456f3;
 }
 
 .form-search__container-input::placeholder {
@@ -67,6 +75,7 @@
   line-height: normal;
   margin-top: 8px;
   margin-bottom: 32px;
+  height: 12px;
 }
 
 @media screen and (max-width: 1280px) {
