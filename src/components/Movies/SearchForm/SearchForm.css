@@ -79,13 +79,13 @@
   margin-bottom: 12px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .form-search {
     margin-bottom: 130px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .form-search__container-input {
     font-size: 18px;
   }

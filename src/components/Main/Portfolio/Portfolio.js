@@ -1,6 +1,6 @@
-import React from "react";
-import "./Portfolio.css";
-import openArrow from "../../../images/open-arrow.svg";
+import React from 'react';
+import './Portfolio.css';
+import openArrow from '../../../images/open-arrow.svg';
 
 export default function Portfolio() {
   return (
@@ -16,7 +16,7 @@ export default function Portfolio() {
               rel='noreferrer'
             >
               <span className='item__text'>Статичный сайт</span>
-              <img src={openArrow} alt='открыть' />
+              <img src={openArrow} alt='открыть' className='item__image' />
             </a>
           </li>
           <li className='portfolio__nav-list-item'>
@@ -27,7 +27,7 @@ export default function Portfolio() {
               rel='noreferrer'
             >
               <span className='item__text'>Адаптивный сайт</span>
-              <img src={openArrow} alt='открыть' />
+              <img src={openArrow} alt='открыть' className='item__image' />
             </a>
           </li>
           <li className='portfolio__nav-list-item'>
@@ -38,7 +38,7 @@ export default function Portfolio() {
               rel='noreferrer'
             >
               <span className='item__text'>Одностраничное приложение</span>
-              <img src={openArrow} alt='открыть' />
+              <img src={openArrow} alt='открыть' className='item__image' />
             </a>
           </li>
         </ul>

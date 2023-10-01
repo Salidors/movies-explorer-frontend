@@ -25,7 +25,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 40px;
+  gap: 52px;
 }
 
 .about__list_item {
@@ -61,11 +61,11 @@
 }
 
 .about__progress-item1 {
-  flex: 1 0 228px;
+  flex: 1 0 20%;
 }
 
 .about__progress-item2 {
-  flex: 1 0 912px;
+  flex: 1 0 80%;
 }
 
 .about__progress-item-green {
@@ -74,10 +74,6 @@
   justify-content: center;
   background: #2be080;
   height: 36px;
-}
-
-.about__list-item {
-  flex: 1 0 550px;
 }
 
 .about__progress-item-gray {
@@ -110,7 +106,7 @@
   margin: 14px 0 0;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .about {
     padding: 90px 50px;
   }
@@ -118,9 +114,30 @@
   .about__progress {
     margin-top: 93px;
   }
+
+  .about__list {
+    gap: 37px;
+  }
+
+  .about__list-title {
+    margin-bottom: 20px;
+  }
+
+  .about__list-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about__progress-item1 {
+    flex: 1 0 21%;
+  }
+
+  .about__progress-item2 {
+    flex: 1 0 79%;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .about {
     padding: 70px 18px;
   }
@@ -133,6 +150,7 @@
   .about__list-title {
     font-size: 18px;
     letter-spacing: -0.72px;
+    margin-bottom: 16px;
   }
 
   .about__list-text {
@@ -146,13 +164,28 @@
 
   .about__progress-item-text {
     font-size: 11px;
+    margin-top: 7px;
   }
 
   .about__list {
     flex-wrap: wrap;
+    gap: 56px;
   }
 
   .about__progress {
     margin-top: 60px;
+  }
+
+  .about__title-line {
+    padding-bottom: 28px;
+    margin-bottom: 60px;
+  }
+
+  .about__progress-item1 {
+    flex: 1 0 35%;
+  }
+
+  .about__progress-item2 {
+    flex: 1 0 65%;
   }
 }

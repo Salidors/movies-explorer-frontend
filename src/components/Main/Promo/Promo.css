@@ -1,7 +1,7 @@
 .promo {
   display: flex;
   background: #073042;
-  padding: 140px 70px 75px 70px;
+  padding: 75px 70px;
   justify-content: space-between;
 }
 
@@ -59,13 +59,13 @@
 
 .promo__container-link:hover {
   border: 1px solid rgba(255, 255, 255);
-
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .promo {
     flex-flow: column;
     align-items: center;
+    padding-top: 140px;
   }
 
   .promo__globus {
@@ -92,6 +92,7 @@
   .promo__container-text {
     text-align: center;
     margin-top: 22px;
+    width: 260px;
   }
 
   .promo__container-link {
@@ -99,23 +100,30 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .promo {
     padding: 70px 18px 30px;
   }
 
+  .promo__globus {
+    width: 210px;
+    height: 206px;
+  }
   .promo__container-title {
     font-size: 30px;
     line-height: 38px;
     letter-spacing: -1.2px;
+    margin-top: 44px;
   }
 
   .promo__container-text {
     font-size: 13px;
-    margin-top: 22px;
+    margin-top: 25px;
   }
 
   .promo__container-link {
     margin-top: 80px;
+    width: 129px
+
   }
 }

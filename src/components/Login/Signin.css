@@ -104,7 +104,7 @@
   line-height: normal;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .signin__form-title {
     text-align: center;
   }

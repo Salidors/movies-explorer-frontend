@@ -85,7 +85,7 @@
   letter-spacing: -0.56px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .techs {
     padding: 90px 50px;
   }
@@ -106,9 +106,16 @@
     font-size: 12px;
     letter-spacing: -0.48px;
   }
+
+  .techs__description-text {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+    margin-top: 24px;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .techs {
     padding: 70px 18px;
   }
@@ -128,6 +135,8 @@
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.44px;
+    width: auto;
+    margin-top: 13px
   }
 
   .techs__list {
@@ -140,7 +149,8 @@
     justify-content: flex-start;
   }
 
-  .techs__description-text {
-    width: auto;
+  .techs__title-line {
+    padding-bottom: 26px;
+    margin-bottom: 49px;
   }
 }

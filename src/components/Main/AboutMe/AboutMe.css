@@ -57,11 +57,10 @@
 .me__private-bio {
   color: #000;
   font-family: Inter, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.8px;
+  font-weight: 500;
+  line-height: 20px;
   margin: 18px 0 26px;
 }
 
@@ -81,7 +80,7 @@
   border-radius: 8px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .me {
     padding: 90px 50px 0;
   }
@@ -95,27 +94,35 @@
   .me__private-bio {
     font-size: 12px;
     line-height: 18px;
+    margin-top: 15px;
+    margin-bottom: 20px;
   }
 
   .me__private-about {
     font-size: 12px;
     line-height: 18px;
   }
+
+  .me__private-image {
+    width: 255px
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .me {
-    padding: 70px 18px 0;
+    padding: 70px 14px 0;
   }
 
   .me__title {
     font-size: 18px;
     line-height: normal;
     letter-spacing: -0.72px;
+    padding-bottom: 28px;
   }
 
   .me__private-container {
     margin-top: 60px;
+    gap: 38px;
   }
 
   .me__private-name {
@@ -127,6 +134,7 @@
     font-size: 11px;
     font-weight: 500;
     line-height: 16px;
+    margin-top: 18px;
   }
 
   .me__private-about {
@@ -136,8 +144,8 @@
   }
 
   .me__private-image {
-    width: 300px;
-    height: auto;
+    width: 292px;
+    height: 352px;
     margin: 0 auto;
     order: -1;
   }

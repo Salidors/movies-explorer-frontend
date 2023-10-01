@@ -70,7 +70,7 @@
   padding: 24px 90px 90px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .burger-menu__content {
     padding: 144px 70px 46px;
   }
