@@ -45,7 +45,7 @@ export default function Header({ isAuth, isLight, onAccountClick }) {
       <Link to='/' className='header__logo-link'>
         <img src={logo} alt='логотип' />
       </Link>
-      {isAuth && windowSize > 1280 && <AuthNavigation />}
+      {isAuth && windowSize > 768 && <AuthNavigation />}
       <Navigation
         isAuth={isAuth}
         isLight={isLight}
