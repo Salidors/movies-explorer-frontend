@@ -77,6 +77,7 @@
 .me__private-image {
   width: 270px;
   height: 307px;
+  border-radius: 8px;
 }
 
 @media screen and (max-width: 1280px) {
