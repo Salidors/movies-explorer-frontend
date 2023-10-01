@@ -6,6 +6,7 @@
 
 .form-search__container {
   display: flex;
+  flex-flow: column;
   justify-content: space-between;
   position: relative;
 }
@@ -74,8 +75,8 @@
   font-weight: 400;
   line-height: normal;
   margin-top: 8px;
-  margin-bottom: 32px;
   height: 12px;
+  margin-bottom: 8px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -94,10 +95,14 @@
   }
 
   .form-search__error {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .form-search {
     margin-bottom: 90px;
+  }
+
+  .form-search__container-button {
+    top: -4px;
   }
 }

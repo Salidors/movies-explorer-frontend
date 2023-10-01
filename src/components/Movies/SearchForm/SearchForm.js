@@ -48,9 +48,9 @@ export default function SearchForm({ onSearch }) {
         >
           Найти
         </button>
+        <p className='form-search__error'>{error}</p>
+        <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
       </form>
-      <p className='form-search__error'>{error}</p>
-      <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
     </section>
   );
 }
