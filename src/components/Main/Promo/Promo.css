@@ -1,7 +1,7 @@
 .promo {
   display: flex;
   background: #073042;
-  padding: 75px 70px;
+  padding: 140px 70px 75px 70px;
   justify-content: space-between;
 }
 

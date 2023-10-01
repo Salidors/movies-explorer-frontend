@@ -10,7 +10,7 @@ export default function Promo() {
           Учебный проект студента факультета Веб&#8209;разработки.
         </h1>
         <p className='promo__container-text'>
-          Листайте ниже, чтобы узнать больше про этот проект и его создателя.
+          Листайте ниже, чтобы узнать больше <br/> про этот проект и его создателя.
         </p>
         <a className='link promo__container-link' href='#about-project'>
           Узнать больше
