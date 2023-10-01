@@ -73,7 +73,8 @@ export default function Profile() {
                 onChange={handleOnEmailChange}
                 value={email}
                 required
-              />
+                maxLength={40}
+                />
             </div>
             <p className='profile__error'>{emailError}</p>
           </div>

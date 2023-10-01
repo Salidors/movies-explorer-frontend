@@ -45,6 +45,7 @@ export default function Signin({ onSignIn }) {
             pattern='^.+@.+\..+$'
             required
             placeholder='Введите емейл'
+            maxLength={40}
           />
         </div>
         <div className='signin__form-input'>

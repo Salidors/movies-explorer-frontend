@@ -66,6 +66,7 @@ export default function Signup() {
             value={email}
             onChange={handleOnEmailChange}
             placeholder='Введите емейл'
+            maxLength={40}
           />
         </div>
         <div className='signup__form-input'>
