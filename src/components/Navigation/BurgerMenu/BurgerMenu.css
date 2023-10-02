@@ -12,8 +12,8 @@
 .burger-menu__close-btn {
   width: fit-content;
   position: absolute;
-  top: 12px;
-  right: 12px
+  top: 22px;
+  right: 22px;
 }
 
 .burger-menu__close-btn:hover {
@@ -28,7 +28,7 @@
   gap: 28px;
   padding: 0;
   margin: 0;
-  margin-top: 106px;
+  margin-top: 135px;
 }
 
 .burger-menu__list-item {
@@ -64,7 +64,7 @@
   flex-flow: column;
   align-items: center;
   background: #ffffff;
-  max-width: 520px;
+  width: 520px;
   margin: 0;
   z-index: 20;
   padding: 24px 90px 90px;
@@ -72,6 +72,25 @@
 
 @media screen and (max-width: 320px) {
   .burger-menu__content {
-    padding: 144px 30px 46px;
+    width: 100%;
+    padding: 0;
+    padding-top: 10px;
+  }
+
+  .burger-menu__close-btn {
+    top: 13px;
+    right: 13px;
+  }
+
+  .burger-menu__list {
+    gap: 24px;
+  }
+
+  .active {
+    padding-bottom: 6px;
+  }
+
+  .burger-menu__btn-container {
+    margin-bottom: 95px;
   }
 }

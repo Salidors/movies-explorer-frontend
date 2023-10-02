@@ -11,7 +11,7 @@ export default function ProfileButton({ isLight }) {
       }`}
       to='/profile'
     >
-      <span className='profile__link-text'>Аккаунт</span>
+      <p className='profile__link-text'>Аккаунт</p>
       <img src={person} alt='персонаж' />
     </Link>
   );
