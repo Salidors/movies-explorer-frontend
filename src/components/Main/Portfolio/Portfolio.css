@@ -55,7 +55,7 @@
   letter-spacing: -1.2px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .portfolio {
     padding: 70px 50px 148px;
   }
@@ -67,7 +67,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .portfolio {
     padding: 70px 14px 131px;
   }

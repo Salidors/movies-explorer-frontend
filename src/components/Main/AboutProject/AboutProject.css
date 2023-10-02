@@ -106,7 +106,7 @@
   margin: 14px 0 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .about {
     padding: 90px 50px;
   }
@@ -137,7 +137,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .about {
     padding: 70px 18px;
   }

@@ -80,7 +80,7 @@
   border-radius: 8px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .me {
     padding: 90px 50px 0;
   }
@@ -108,7 +108,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .me {
     padding: 70px 14px 0;
   }

@@ -64,7 +64,7 @@
   transform: scaleY(1.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .movies-page {
     padding-bottom: 80px;
   }
@@ -83,7 +83,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .movies__title {
     font-size: 12px;
   }
