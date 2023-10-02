@@ -6,6 +6,12 @@
 
 @media screen and (max-width: 768px) {
   .movies-page {
-    padding: 80px 30px;
+    padding: 69px 28px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-page {
+    padding: 81px 10px;
   }
 }

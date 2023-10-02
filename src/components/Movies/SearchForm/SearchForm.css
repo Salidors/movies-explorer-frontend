@@ -83,11 +83,20 @@
   .form-search {
     margin-bottom: 130px;
   }
+
+  .form-search__error {
+    margin-bottom: 10px;
+  }
+
+  .toggle {
+    gap: 20px;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .form-search__container-input {
     font-size: 18px;
+    padding-bottom: 15px;
   }
 
   .form-search__container-input::placeholder {
@@ -99,10 +108,14 @@
   }
 
   .form-search {
-    margin-bottom: 90px;
+    margin-bottom: 92px;
   }
 
   .form-search__container-button {
     top: -4px;
+  }
+
+  .toggle {
+    gap: 16px;
   }
 }

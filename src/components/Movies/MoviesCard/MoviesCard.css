@@ -65,11 +65,32 @@
 }
 
 @media screen and (max-width: 768px) {
+  .movies-page {
+    padding-bottom: 80px;
+  }
+
+  .movies__image {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movies__description-container {
+    padding-bottom: 25px;
+  }
+
+  .movies__duration {
+    margin-top: 6px;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .movies__title {
     font-size: 12px;
+  }
+
+  .movies__image {
+    width: 300px;
+    height: 168px;
   }
 
   .movies__duration {

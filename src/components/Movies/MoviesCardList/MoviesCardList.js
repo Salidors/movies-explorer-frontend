@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import "./MoviesCardList.css";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import React, { useEffect, useRef, useState } from 'react';
+import './MoviesCardList.css';
+import MoviesCard from '../MoviesCard/MoviesCard';
 
 export default function MoviesCardList({
   movies = [],
@@ -22,6 +22,9 @@ export default function MoviesCardList({
     );
   };
 
+  useEffect(() => {
+    endPosition.current = moviesPerPage - 1;
+  }, [moviesPerPage]);
   return (
     <section className='movies'>
       <ul className='movies__list'>

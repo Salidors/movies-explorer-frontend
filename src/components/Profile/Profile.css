@@ -2,7 +2,6 @@
   margin: 74px auto;
   max-width: 410px;
   min-width: 410px;
-  height: calc(100vh - 250px);
   padding: 0 30px;
 }
 
@@ -133,4 +132,43 @@
   font-weight: 400;
   line-height: normal;
   margin: 6px 0 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    margin-top: 225px;
+  }
+
+  .profile__form-title {
+    margin-bottom: 96px;
+  }
+
+  .profile__form-nav {
+    margin-top: 177px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    max-width: 320px;
+    min-width: unset;
+    padding: 0 30px;
+    margin-top: 61px;
+  }
+
+  .profile__form-title {
+    margin-bottom: 81px;
+  }
+
+  .profile__form-nav {
+    margin-top: 344px;
+  }
+
+  .profile__btn-save {
+    font-size: 12px;
+  }
+
+  .profile__form-link {
+    font-size: 12px;
+  }
 }

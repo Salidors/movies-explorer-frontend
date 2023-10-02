@@ -15,6 +15,7 @@ import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
 import {
   MOVIES_PER_PAGE_DESKTOP,
+  MOVIES_PER_PAGE_MOBILE,
   MOVIES_PER_PAGE_TABLET,
 } from '../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -26,7 +27,7 @@ function App() {
   const isLight = pathname !== '/';
 
   const [currentUser, setCurrentUser] = useState({
-    name: 'Нина Абрамова',
+    name: 'Нина',
     email: 'abramova.nina.g@gmail.com',
   });
   const [isAuth, setIsAuth] = useState(false);
@@ -44,10 +45,9 @@ function App() {
     return () => window.removeEventListener('resize', memoizedCallback);
   }, [memoizedCallback]);
 
-  const isTablet = windowSize <= 1280;
-  const moviesPerPage = isTablet
-    ? MOVIES_PER_PAGE_TABLET
-    : MOVIES_PER_PAGE_DESKTOP;
+  let moviesPerPage = MOVIES_PER_PAGE_DESKTOP;
+  if (windowSize <= 320) moviesPerPage = MOVIES_PER_PAGE_MOBILE;
+  else if (windowSize <= 768) moviesPerPage = MOVIES_PER_PAGE_TABLET;
 
   const handleOnSignIn = () => {
     setIsAuth(true);
