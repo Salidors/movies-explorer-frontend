@@ -9,12 +9,12 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .header-login {
     padding-top: 232px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .header-login {
     justify-content: center;
     padding-top: 56px;

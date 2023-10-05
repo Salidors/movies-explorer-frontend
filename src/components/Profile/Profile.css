@@ -148,7 +148,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 450px) {
   .profile {
     max-width: 320px;
     min-width: unset;
