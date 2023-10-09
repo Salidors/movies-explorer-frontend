@@ -41,7 +41,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля',
     nameEN: 'The Green Mile',
@@ -57,7 +57,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -73,7 +73,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -89,7 +89,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -105,7 +105,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -121,7 +121,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -137,7 +137,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -153,7 +153,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -169,7 +169,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -185,7 +185,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -201,7 +201,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -217,7 +217,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -233,7 +233,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -249,7 +249,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -265,7 +265,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -281,7 +281,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -297,7 +297,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
@@ -313,7 +313,7 @@ const _movies = [
     description:
       'Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них',
     image:
-      'https://ih1.redbubble.net/image.2853088286.5158/cposter,medium,product,750x1000.2.jpg',
+      'https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/07/greenmilequadlarge1.jpg',
     trailerLink: 'https://www.youtube.com/watch?v=Ki4haFrqSrw',
     nameRU: 'Зеленая миля2',
     nameEN: 'The Green Mile2',
