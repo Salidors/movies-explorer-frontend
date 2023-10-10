@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './MoviesCardList.css';
-import MoviesCard from '../MoviesCard/MoviesCard';
+import React, { useEffect, useRef, useState } from "react";
+import "./MoviesCardList.css";
+import MoviesCard from "../MoviesCard/MoviesCard";
+import { useLocation } from "react-router-dom";
 
 export default function MoviesCardList({
   movies = [],
@@ -8,6 +9,7 @@ export default function MoviesCardList({
   onLike,
   moviesPerPage,
 }) {
+  const { pathname } = useLocation();
   const startPosition = useRef(0);
   const endPosition = useRef(moviesPerPage - 1);
   const [currentMovies, setCurrentMovies] = useState(
@@ -25,6 +27,8 @@ export default function MoviesCardList({
   useEffect(() => {
     endPosition.current = moviesPerPage - 1;
   }, [moviesPerPage]);
+
+  const showMore = movies.length > 0 && pathname !== "/saved-movies";
   return (
     <section className='movies'>
       <ul className='movies__list'>
@@ -37,15 +41,15 @@ export default function MoviesCardList({
           />
         ))}
       </ul>
-      {movies.length > 0 && (
-        <button
-          className='btn movies-page__more'
-          onClick={handleOnMore}
-          type='button'
-        >
-          Ещё
-        </button>
-      )}
+      <button
+        className={`btn movies-page__more ${
+          showMore ? "" : "movies-page__more--hidden"
+        }`}
+        onClick={handleOnMore}
+        type='button'
+      >
+        Ещё
+      </button>
     </section>
   );
 }
