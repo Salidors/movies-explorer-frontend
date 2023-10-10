@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column;
   background: #ffffff;
-  padding: 111px 70px 183px;
+  padding: 103px 70px 183px;
 }
 
 .portfolio__title {
@@ -57,7 +57,7 @@
 
 @media screen and (max-width: 1000px) {
   .portfolio {
-    padding: 70px 50px 148px;
+    padding: 93px 50px 148px;
   }
 
   .item__text {

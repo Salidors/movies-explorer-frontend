@@ -97,6 +97,7 @@
 .signup__form-link {
   color: #3456f3;
   text-align: center;
+  margin: 0;
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
