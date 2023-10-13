@@ -1,0 +1,6 @@
+.empty-footer-layout {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  max-width: 1280px;
+}

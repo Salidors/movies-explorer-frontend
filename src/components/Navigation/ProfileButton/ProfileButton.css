@@ -1,0 +1,36 @@
+.profile__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100px;
+  height: 32px;
+  border-radius: 40px;
+  background: #2be080;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+  border: 0;
+  width: 100px;
+}
+
+.profile__link-text {
+  color: #000;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  padding-left: 7px;
+}
+
+.profile__link-theme-light {
+  background: #ffffff;
+}
+
+.profile__link-theme-light:hover {
+  background: #f1f1f1;
+}
+
+.profile__link:hover {
+  opacity: 0.8;
+}

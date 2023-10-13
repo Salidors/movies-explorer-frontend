@@ -1,0 +1,23 @@
+.link {
+  text-decoration: none;
+  margin: 0 auto;
+  padding: 0;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+.link:hover {
+  color: #a0a0a0;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.btn:hover {
+  background: #002df3;
+}

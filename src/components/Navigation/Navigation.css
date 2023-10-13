@@ -1,0 +1,50 @@
+.header__anonymous-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__anonymous-links-signup {
+  color: #fff;
+  text-align: right;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__anonymous-signin {
+  border-radius: 3px;
+  background: #2be080;
+  padding: 8px 20px;
+
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__anonymous-signin:hover {
+  background: #049347;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 320px) {
+  .header__anonymous-links {
+    gap: 14px;
+  }
+
+  .header__anonymous-links-signup {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__anonymous-signin {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 5px 12px;
+  }
+}

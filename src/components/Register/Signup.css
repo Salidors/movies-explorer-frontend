@@ -1,0 +1,134 @@
+.signup {
+  margin-top: 40px;
+  height: 100%;
+}
+
+.signup__form {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.signup__form-title {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.signup__form-input {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.signup__input-label {
+  color: #a0a0a0;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signup__input {
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  outline: none;
+  padding-bottom: 10px;
+}
+
+.signup__input:focus {
+  border-bottom: 1px solid #3456f3;
+}
+
+.signup__form-button {
+  height: 45px;
+  border-radius: 3px;
+  background: #3456f3;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 128px;
+}
+
+.signup__form-button:disabled {
+  background: #f9f9f9;
+  color: #000;
+}
+
+.signup__form-input-email {
+  margin-bottom: 24px;
+}
+
+.signup__form-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 16px 0 70px;
+}
+
+.signup__form-text {
+  color: #a0a0a0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signup__form-link {
+  color: #3456f3;
+  text-align: center;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (max-width: 760px) {
+  .signup {
+    margin-top: 49px;
+  }
+
+  .signup__form-title {
+    text-align: center;
+    margin-bottom: 81px;
+  }
+
+  .signup__form-button {
+    font-size: 12px;
+    margin-top: 217px;
+  }
+
+  .signup__form-text {
+    font-size: 12px;
+  }
+
+  .signup__form-link {
+    font-size: 12px;
+  }
+
+  .signup__form-nav {
+    margin-top: 13px;
+  }
+}

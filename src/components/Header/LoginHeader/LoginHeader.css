@@ -1,0 +1,22 @@
+.header-login {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 70px 0 0;
+}
+
+.header-login__logo:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 900px) {
+  .header-login {
+    padding-top: 232px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header-login {
+    justify-content: center;
+    padding-top: 56px;
+  }
+}

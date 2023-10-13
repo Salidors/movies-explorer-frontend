@@ -1,0 +1,129 @@
+.promo {
+  display: flex;
+  background: #073042;
+  padding: 75px 70px;
+  justify-content: space-between;
+}
+
+.promo__container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.promo__container-title {
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  margin: 0;
+  max-width: 640px;
+}
+
+.promo__container-text {
+  width: 310px;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.5;
+  margin: 36px 0 0;
+}
+
+.promo__globus {
+  width: 310px;
+  height: 304px;
+}
+
+.promo__container-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  width: 129px;
+  height: 36px;
+  background-color: transparent;
+  margin: 146px 0 0 0;
+}
+
+.promo__container-link:hover {
+  border: 1px solid rgba(255, 255, 255);
+}
+
+@media screen and (max-width: 900px) {
+  .promo {
+    flex-flow: column;
+    align-items: center;
+    padding-top: 140px;
+  }
+
+  .promo__globus {
+    order: -1;
+  }
+
+  .promo__container-title {
+    color: #fff;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    margin-top: 48px;
+    max-width: 680px;
+  }
+
+  .promo__container {
+    align-items: center;
+  }
+
+  .promo__container-text {
+    text-align: center;
+    margin-top: 22px;
+    width: 260px;
+  }
+
+  .promo__container-link {
+    margin: 92px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .promo {
+    padding: 70px 18px 30px;
+  }
+
+  .promo__globus {
+    width: 210px;
+    height: 206px;
+  }
+  .promo__container-title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+    margin-top: 44px;
+  }
+
+  .promo__container-text {
+    font-size: 13px;
+    margin-top: 25px;
+  }
+
+  .promo__container-link {
+    margin: 80px 0 0 0;
+    width: 129px
+
+  }
+}
