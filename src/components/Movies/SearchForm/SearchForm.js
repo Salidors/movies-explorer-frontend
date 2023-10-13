@@ -11,7 +11,7 @@ export default function SearchForm({ onSearch }) {
 
   const handleOnNameChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
-    else setError(event.target.validationMessage);
+    else setError('Нужно ввести ключевое слово');
     const { value } = event.currentTarget;
     setSearch(value);
   };

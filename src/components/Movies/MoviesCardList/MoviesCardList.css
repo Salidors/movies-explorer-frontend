@@ -41,18 +41,17 @@
 }
 
 @media screen and (max-width: 900px) {
-  .movies__list { 
+  .movies__list {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 }
 
-@media screen and (max-width: 500px){
-  .movies__list { 
+@media screen and (max-width: 500px) {
+  .movies__list {
     grid-template-columns: repeat(1, 1fr);
     gap: 34px;
-    
-  } 
+  }
 
   .movies-page__more {
     width: 240px;

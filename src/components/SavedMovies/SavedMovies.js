@@ -4,7 +4,7 @@ import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import Preloader from '../Movies/Preloader/Preloader';
 
-export default function SavedMovies({ moviesPerPage }) {
+export default function SavedMovies({ config }) {
   const [movies, setMovies] = useState(_movies);
   const [isLoading, setIsLoading] = useState(false);
   const handleOnSearch = useCallback((value) => {
@@ -28,7 +28,7 @@ export default function SavedMovies({ moviesPerPage }) {
         <MoviesCardList
           movies={movies}
           favorites
-          moviesPerPage={moviesPerPage}
+          moviesPerPage={config.moviesPerPage}
         />
       )}
     </main>

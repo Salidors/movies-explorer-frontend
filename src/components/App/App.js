@@ -14,6 +14,9 @@ import { useCallback, useEffect, useState } from 'react';
 import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
 import {
+  MOVIES_MORE_DESKTOP,
+  MOVIES_MORE_MOBILE,
+  MOVIES_MORE_TABLET,
   MOVIES_PER_PAGE_DESKTOP,
   MOVIES_PER_PAGE_MOBILE,
   MOVIES_PER_PAGE_TABLET,
@@ -45,9 +48,20 @@ function App() {
     return () => window.removeEventListener('resize', memoizedCallback);
   }, [memoizedCallback]);
 
-  let moviesPerPage = MOVIES_PER_PAGE_DESKTOP;
-  if (windowSize <= 320) moviesPerPage = MOVIES_PER_PAGE_MOBILE;
-  else if (windowSize <= 768) moviesPerPage = MOVIES_PER_PAGE_TABLET;
+  let moviesPerPage = {
+    moviesPerPage: MOVIES_PER_PAGE_DESKTOP,
+    moreMovies: MOVIES_MORE_DESKTOP,
+  };
+  if (windowSize <= 320)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_MOBILE,
+      moreMovies: MOVIES_MORE_MOBILE,
+    };
+  else if (windowSize <= 768)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_TABLET,
+      moreMovies: MOVIES_MORE_TABLET,
+    };
 
   const handleOnSignIn = () => {
     setIsAuth(true);
@@ -96,7 +110,7 @@ function App() {
                 path='movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <Movies moviesPerPage={moviesPerPage} />
+                    <Movies config={moviesPerPage} />
                   </ProtectedRoute>
                 }
               />
@@ -105,7 +119,7 @@ function App() {
                 path='saved-movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <SavedMovies moviesPerPage={moviesPerPage} />
+                    <SavedMovies config={moviesPerPage} />
                   </ProtectedRoute>
                 }
               />
