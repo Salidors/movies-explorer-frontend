@@ -40,7 +40,9 @@ function App() {
   };
 
   const memoizedCallback = useCallback(() => {
-    setWindowSize(window.innerWidth);
+    setTimeout(() => {
+      setWindowSize(window.innerWidth);
+    }, 1000);
   }, []);
 
   useEffect(() => {

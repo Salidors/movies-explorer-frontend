@@ -1,13 +1,28 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './SearchForm.css';
 import Toggle from '../../Toggle/Toggle';
+import {
+  saveAllMoviesSearch,
+  getAllMoviesSearch,
+  getSavedMoviesSearch,
+  saveSavedMoviesSearch,
+} from '../../../utils/localStorage';
+import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function SearchForm({ onSearch }) {
+  const { pathname } = useLocation();
+  const { switcher, filter } = useMemo(
+    () =>
+      pathname === '/movies' ? getAllMoviesSearch() : getSavedMoviesSearch(),
+    [pathname]
+  );
+
   const refForm = useRef(null);
-  const [isToggled, setIsToggled] = useState(true);
+  const [isToggled, setIsToggled] = useState(switcher);
   const [error, setError] = useState();
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(filter);
 
   const handleOnNameChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
@@ -19,6 +34,12 @@ export default function SearchForm({ onSearch }) {
   const handleOnSearch = () => {
     onSearch(search);
   };
+
+  useEffect(() => {
+    if (pathname === '/movies')
+      saveAllMoviesSearch({ filter: search, switcher: isToggled });
+    else saveSavedMoviesSearch({ filter: search, switcher: isToggled });
+  }, [isToggled, search, pathname]);
 
   const isSubmitDisabled = Boolean(error);
   return (
