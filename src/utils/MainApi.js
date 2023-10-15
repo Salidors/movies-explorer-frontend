@@ -40,3 +40,17 @@ export const getUserInfo = () => {
       return data;
     });
 };
+
+export const updateUserInfo = (data) => {
+  return fetch(`${apiBaseUrl}/users/me`, {
+    method: 'PATCH',
+    credentials: 'include',
+    headers,
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message) throw Error(data.message);
+      return data;
+    });
+};

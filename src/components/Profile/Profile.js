@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+import { updateUserInfo } from '../../utils/MainApi';
 
 export default function Profile() {
   const refForm = useRef(null);
@@ -29,16 +30,21 @@ export default function Profile() {
   };
 
   const isSubmitDisabled = Boolean(nameError || emailError);
+
+  const handleOnSubmit = useCallback(() => {
+    updateUserInfo({ name, email })
+      .then((data) => {
+        updateCurrentUser(data);
+      })
+      .catch((e) => {
+        setEmailError(e.message);
+      });
+  }, [name, email, updateCurrentUser]);
+
   return (
     <main>
       <section className='profile'>
-        <form
-          className='profile__form'
-          ref={refForm}
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form className='profile__form' ref={refForm}>
           <div className='profile__form-container'>
             <h1 className='profile__form-title'>Привет, {currentName}!</h1>
             <div className='profile__form-input profile__form-input-email'>
@@ -74,14 +80,14 @@ export default function Profile() {
                 value={email}
                 required
                 maxLength={40}
-                />
+              />
             </div>
             <p className='profile__error'>{emailError}</p>
           </div>
           <nav className='profile__form-nav'>
             <button
               className={'btn profile__btn-save'}
-              onClick={() => updateCurrentUser({ name, email })}
+              onClick={handleOnSubmit}
               type='button'
               disabled={isSubmitDisabled}
             >
