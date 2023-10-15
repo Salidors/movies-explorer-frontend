@@ -6,10 +6,14 @@ export const saveServerMovies = (movies) => {
 
 export const getServerMovies = () => {
   const movies = window.localStorage.getItem(movieName);
-  if (movies) return JSON.parse(movies);
+  try {
+    return JSON.parse(movies);
+  } catch {
+    return undefined;
+  }
 };
 
-const allMoviesSearchName = 'movies-all-search';
+const allMoviesSearchName = 'movies-filter';
 
 export const saveAllMoviesSearch = (value) => {
   window.localStorage.setItem(allMoviesSearchName, JSON.stringify(value));
@@ -20,13 +24,13 @@ export const getAllMoviesSearch = () => {
   return value ? JSON.parse(value) : { switcher: true, filter: '' };
 };
 
-const savedMoviesSearchName = 'movies-saved-search';
+const foundMoviesName = 'movies-found';
 
-export const saveSavedMoviesSearch = (value) => {
-  window.localStorage.setItem(savedMoviesSearchName, JSON.stringify(value));
+export const saveFoundMovies = (value) => {
+  window.localStorage.setItem(foundMoviesName, JSON.stringify(value));
 };
 
-export const getSavedMoviesSearch = () => {
-  const value = window.localStorage.getItem(savedMoviesSearchName);
-  return value ? JSON.parse(value) : { switcher: true, filter: '' };
+export const getFoundMovies = () => {
+  const movies = window.localStorage.getItem(foundMoviesName) || '[]';
+  if (movies) return JSON.parse(movies);
 };

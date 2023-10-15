@@ -1,45 +1,55 @@
-import { useEffect, useState } from 'react';
-import { getServerMovies, saveServerMovies } from './localStorage';
+import { API_URL, MOVIES_API_URL } from '../components/constants/constants';
 
-const filterMovies = (movies, filter) =>
+const filterMoviesByName = (movies = [], filter) =>
   movies.filter(
     ({ nameRU, nameEN }) =>
       nameRU.toLowerCase().includes(filter.toLowerCase()) ||
       nameEN.toLowerCase().includes(filter.toLowerCase())
   );
 
-const initMovies = getServerMovies();
+const filterMoviesByDuration = (movies = []) =>
+  movies.filter(({ duration }) => duration < 30);
 
-export const useMovies = (filter) => {
-  const [serverMovies, setServerMovies] = useState(initMovies);
-  const [movies, setMovies] = useState();
-  const [error, setError] = useState();
-  const [isLoading, setLoading] = useState(false);
+export const fetchMovies = () => {
+  return fetch(`${MOVIES_API_URL}/beatfilm-movies`, {
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+};
 
-  useEffect(() => {
-    if (!filter || initMovies !== undefined) return;
+export const fetchFavoriteMovies = () => {
+  return fetch(`${API_URL}/movies`, {
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  })
+    .then((res) => res.json())
+    .then(({ data }) => data);
+};
 
-    setLoading(true);
-    fetch('https://api.nomoreparties.co/beatfilm-movies', {
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        saveServerMovies(data);
-        setServerMovies(data);
-      })
-      .catch(() => {
-        setError(
-          'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'
-        );
-      })
-      .finally(() => setLoading(false));
-  }, [filter]);
+export const filterMovies = ({ movies, search, switcher }) => {
+  const _movies = search ? filterMoviesByName(movies, search) : movies || [];
+  return switcher ? filterMoviesByDuration(_movies) : _movies;
+};
 
-  useEffect(() => {
-    if (!serverMovies || !filter) return;
-    setMovies(filterMovies(serverMovies, filter));
-  }, [filter, serverMovies]);
+export const saveMovie = (data) => {
+  return fetch(`${API_URL}/movies`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message) throw Error(data.message);
+      return data;
+    });
+};
 
-  return { isLoading, movies, error };
+export const deleteMovie = (movieId) => {
+  return fetch(`${API_URL}/movies/${movieId}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then((res) => res.json());
 };

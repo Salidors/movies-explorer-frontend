@@ -1,5 +1,4 @@
-const apiBaseUrl = 'http://localhost:3102';
-// const apiBaseUrl = 'https://api.arcana.nomoredomainsicu.ru';
+import { API_URL } from '../components/constants/constants';
 
 const headers = {
   'content-type': 'application/json',
@@ -7,7 +6,7 @@ const headers = {
 };
 
 export const signUp = (data) => {
-  return fetch(`${apiBaseUrl}/signup`, {
+  return fetch(`${API_URL}/signup`, {
     method: 'POST',
     credentials: 'include',
     headers,
@@ -21,7 +20,7 @@ export const signUp = (data) => {
 };
 
 export const signIn = (data) => {
-  return fetch(`${apiBaseUrl}/signin`, {
+  return fetch(`${API_URL}/signin`, {
     method: 'POST',
     credentials: 'include',
     headers,
@@ -30,7 +29,7 @@ export const signIn = (data) => {
 };
 
 export const getUserInfo = () => {
-  return fetch(`${apiBaseUrl}/users/me`, {
+  return fetch(`${API_URL}/users/me`, {
     credentials: 'include',
     headers,
   })
@@ -42,7 +41,7 @@ export const getUserInfo = () => {
 };
 
 export const updateUserInfo = (data) => {
-  return fetch(`${apiBaseUrl}/users/me`, {
+  return fetch(`${API_URL}/users/me`, {
     method: 'PATCH',
     credentials: 'include',
     headers,

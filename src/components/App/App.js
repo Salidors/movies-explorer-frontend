@@ -23,8 +23,10 @@ import {
 } from '../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { getUserInfo } from '../../utils/MainApi';
+import { fetchFavoriteMovies } from '../../utils/MoviesApi';
 
 function App() {
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
   const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { pathname } = useLocation();
@@ -97,9 +99,22 @@ function App() {
       .catch(() => {});
   }, [handleOnSuccessSignIn]);
 
+  useEffect(() => {
+    if (!isAuth) return;
+    fetchFavoriteMovies().then(setFavoriteMovies);
+  }, [isAuth]);
+
   return (
     <Context.Provider
-      value={{ currentUser, updateCurrentUser, isAuth, isLight, windowSize }}
+      value={{
+        currentUser,
+        updateCurrentUser,
+        isAuth,
+        isLight,
+        windowSize,
+        favoriteMovies,
+        setFavoriteMovies,
+      }}
     >
       <div className='app'>
         <Routes>

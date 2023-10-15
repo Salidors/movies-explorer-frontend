@@ -16,7 +16,7 @@ export default function MoviesCardList({
         {movies.map((movie) => (
           <MoviesCard
             movie={movie}
-            key={movie.id}
+            key={movie.id || movie._id}
             favorites={favorites}
             onLike={onLike}
           />

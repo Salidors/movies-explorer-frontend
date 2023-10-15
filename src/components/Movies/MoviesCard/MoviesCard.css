@@ -34,7 +34,7 @@
 .movies__like-btn {
   background-image: url(../../../images/heart.svg);
   background-color: transparent;
-  width: 24px;
+  width: 30px;
   height: 24px;
 }
 
@@ -46,8 +46,12 @@
   background-image: url(../../../images/crest.svg);
   border: none;
   background-color: transparent;
-  width: 24px;
+  width: 30px;
   height: 24px;
+}
+
+.movies__delete-btn:hover {
+  background-color: transparent;
 }
 
 .movies__duration {
@@ -72,7 +76,6 @@
   .movies-page {
     padding-bottom: 80px;
   }
-
 
   .movies__description-container {
     padding-bottom: 25px;
@@ -100,4 +103,3 @@
     height: 168px;
   }
 }
-

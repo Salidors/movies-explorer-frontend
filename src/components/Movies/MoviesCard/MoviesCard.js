@@ -11,8 +11,6 @@ export default function MoviesCard({
   const { trailerLink, nameRU, image, duration } = movie;
   const formattedDuration = formatDuration(duration);
 
-  const imgFullUrl = `https://api.nomoreparties.co${image.url}`;
-
   return (
     <li className='movies__item'>
       <a
@@ -21,14 +19,14 @@ export default function MoviesCard({
         target='_blank'
         rel='noreferrer'
       >
-        <img className='movies__image' alt={nameRU} src={imgFullUrl} />
+        <img className='movies__image' alt={nameRU} src={image} />
       </a>
       <div className='movies__description'>
         <div className='movies__description-container'>
           <h2 className='movies__title'>{nameRU}</h2>
           <button
             className={getButtonClassName(isLiked, favorites)}
-            onClick={onLike}
+            onClick={() => onLike(movie)}
             type='button'
           ></button>
         </div>
