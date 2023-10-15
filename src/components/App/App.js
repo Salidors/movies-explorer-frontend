@@ -22,6 +22,7 @@ import {
   MOVIES_PER_PAGE_TABLET,
 } from '../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import { getUserInfo } from '../../utils/MainApi';
 
 function App() {
   const navigate = useNavigate();
@@ -29,10 +30,7 @@ function App() {
   const { pathname } = useLocation();
   const isLight = pathname !== '/';
 
-  const [currentUser, setCurrentUser] = useState({
-    name: 'Нина',
-    email: 'abramova.nina.g@gmail.com',
-  });
+  const [currentUser, setCurrentUser] = useState();
   const [isAuth, setIsAuth] = useState(false);
 
   const updateCurrentUser = ({ name, email }) => {
@@ -65,15 +63,39 @@ function App() {
       moreMovies: MOVIES_MORE_TABLET,
     };
 
-  const handleOnSignIn = () => {
-    setIsAuth(true);
-    navigate('/');
-  };
+  const loadUserInfo = useCallback(() => {
+    getUserInfo()
+      .then((info) => {
+        setCurrentUser(info);
+        setIsAuth(true);
+        navigate('/movies');
+      })
+      .catch(() => {
+        navigate('/');
+      });
+  }, [navigate]);
+
+  const handleOnSuccessSignIn = useCallback(() => {
+    loadUserInfo();
+  }, [loadUserInfo]);
+
+  const handleOnSuccessSignUp = useCallback(() => {
+    loadUserInfo();
+  }, [loadUserInfo]);
 
   const handleOnSignOut = () => {
     setIsAuth(false);
     navigate('/');
   };
+
+  useEffect(() => {
+    getUserInfo()
+      .then((info) => {
+        setCurrentUser(info);
+        setIsAuth(true);
+      })
+      .catch(() => {});
+  }, [handleOnSuccessSignIn]);
 
   return (
     <Context.Provider
@@ -85,9 +107,12 @@ function App() {
             <Route element={<LoginLayout />}>
               <Route
                 path='signin'
-                element={<Signin onSignIn={handleOnSignIn} />}
+                element={<Signin onSuccessSignIn={handleOnSuccessSignIn} />}
               />
-              <Route path='signup' element={<Signup />} />
+              <Route
+                path='signup'
+                element={<Signup onSuccessSignUp={handleOnSuccessSignUp} />}
+              />
             </Route>
             <Route
               element={

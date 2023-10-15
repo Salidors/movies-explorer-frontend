@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './Signup.css';
 import { Link } from 'react-router-dom';
+import { signUp } from '../../utils/MainApi';
 
-export default function Signup() {
+export default function Signup({ onSuccessSignUp }) {
   const refForm = useRef(null);
 
   const [name, setName] = useState('');
@@ -32,15 +33,20 @@ export default function Signup() {
 
   const isSubmitDisabled = Boolean(!isFormValid);
 
+  const handleOnSubmit = useCallback(() => {
+    signUp({ name, email, password })
+      .then(() => {
+        onSuccessSignUp();
+      })
+      .catch((e) => {
+        setError(e.message);
+        console.error(e);
+      });
+  }, [name, email, password, onSuccessSignUp]);
+
   return (
     <main className='signup'>
-      <form
-        className='signup__form'
-        ref={refForm}
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-      >
+      <form className='signup__form' ref={refForm}>
         <h1 className='signup__form-title'>Добро пожаловать!</h1>
         <div className='signup__form-input signup__form-input-email'>
           <label className='signup__input-label'>Имя</label>
@@ -78,7 +84,7 @@ export default function Signup() {
             value={password}
             onChange={handleOnPasswordChange}
             placeholder='Введите пароль'
-            minLength={2}
+            minLength={1}
             maxLength={30}
           />
         </div>
@@ -87,6 +93,7 @@ export default function Signup() {
           className='btn signup__form-button'
           type='button'
           disabled={isSubmitDisabled}
+          onClick={handleOnSubmit}
         >
           Зарегистрироваться
         </button>

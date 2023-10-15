@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './Signin.css';
 import { Link } from 'react-router-dom';
+import { getUserInfo, signIn } from '../../utils/MainApi';
 
-export default function Signin({ onSignIn }) {
+export default function Signin({ onSuccessSignIn }) {
   const refForm = useRef(null);
 
   const [password, setPassword] = useState('');
@@ -24,6 +25,16 @@ export default function Signin({ onSignIn }) {
   };
 
   const isSubmitDisabled = Boolean(!isFormValid);
+
+  const handleOnSignIn = useCallback(() => {
+    signIn({ email, password })
+      .then(() => {
+        onSuccessSignIn();
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }, [email, password, onSuccessSignIn]);
 
   return (
     <main className='signin'>
@@ -56,7 +67,7 @@ export default function Signin({ onSignIn }) {
             value={password}
             onChange={handleOnPasswordChange}
             required
-            minLength={2}
+            minLength={1}
             maxLength={30}
             placeholder='Введите пароль'
           />
@@ -64,7 +75,7 @@ export default function Signin({ onSignIn }) {
         <p className='profile__error'>{error}</p>
         <button
           className='btn signin__form-button'
-          onClick={onSignIn}
+          onClick={handleOnSignIn}
           value={email}
           disabled={isSubmitDisabled}
           type='button'
