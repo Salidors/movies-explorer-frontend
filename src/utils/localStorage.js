@@ -21,7 +21,7 @@ export const saveAllMoviesSearch = (value) => {
 
 export const getAllMoviesSearch = () => {
   const value = window.localStorage.getItem(allMoviesSearchName);
-  return value ? JSON.parse(value) : { switcher: true, filter: '' };
+  return value ? JSON.parse(value) : {};
 };
 
 const foundMoviesName = 'movies-found';

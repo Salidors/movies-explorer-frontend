@@ -40,7 +40,7 @@ export const saveMovie = (data) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((data) => {
+    .then(({ data }) => {
       if (data.message) throw Error(data.message);
       return data;
     });

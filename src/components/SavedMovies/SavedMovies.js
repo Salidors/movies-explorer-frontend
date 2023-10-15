@@ -6,32 +6,30 @@ import { deleteMovie, filterMovies } from '../../utils/MoviesApi';
 import { useFavoriteMovies } from '../hooks/useFavoriteMovies';
 
 export default function SavedMovies({ config }) {
-  const [filter, setFilter] = useState();
   const [count, setCount] = useState(config.moviesPerPage);
   const { favoriteMovies, setFavoriteMovies } = useFavoriteMovies();
-  const filteredMovies = filterMovies({
-    movies: favoriteMovies,
-    ...filter,
-  });
+
+  const [movies, setMovies] = useState([]);
 
   const handleOnSearch = useCallback(
     (value) => {
-      setFilter((state) => ({ ...state, search: value }));
+      const filteredMovies = filterMovies({ movies: favoriteMovies, ...value });
+      setMovies(filteredMovies);
       setCount(config.moviesPerPage);
     },
-    [config.moviesPerPage]
+    [config.moviesPerPage, favoriteMovies]
   );
 
   const handleOnMore = () => {
     setCount((state) => state + config.moreMovies);
   };
 
-  const _movies = filteredMovies.slice(0, count);
+  const _movies = movies.slice(0, count);
 
-  const isMore = count < filteredMovies.length;
-  const isEmpty = Boolean(!filteredMovies.length);
+  const isMore = count < movies.length;
+  const isEmpty = Boolean(!movies.length);
 
-  const handleOnDisLike = useCallback(
+  const handleOnDislike = useCallback(
     ({ _id }) => {
       deleteMovie(_id).then(() => {
         setFavoriteMovies((state) =>
@@ -42,23 +40,15 @@ export default function SavedMovies({ config }) {
     [setFavoriteMovies]
   );
 
-  const handleOnToggle = useCallback(
-    (value) => {
-      setFilter((state) => ({ ...state, switcher: value }));
-      setCount(config.moviesPerPage);
-    },
-    [config.moviesPerPage]
-  );
-
   return (
     <main className='movies-page'>
-      <SearchForm onSearch={handleOnSearch} onToggle={handleOnToggle} />
+      <SearchForm onChange={handleOnSearch} />
       {isEmpty && <p className='movies-page__empty'>Ничего не найдено</p>}
       {!isEmpty && (
         <MoviesCardList
           movies={_movies}
           onMore={isMore ? handleOnMore : undefined}
-          onLike={handleOnDisLike}
+          onLike={handleOnDislike}
           favorites={true}
         />
       )}

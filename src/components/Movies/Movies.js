@@ -10,6 +10,7 @@ import {
   getServerMovies,
   saveServerMovies,
   saveFoundMovies,
+  getAllMoviesSearch,
 } from '../../utils/localStorage';
 import { MOVIES_API_URL } from '../constants/constants';
 
@@ -21,7 +22,6 @@ export default function Movies({ config }) {
   const [error, setError] = useState();
   const [isLoading, setLoading] = useState(false);
 
-  const [search, setSearch] = useState('');
   const [count, setCount] = useState(config.moviesPerPage);
 
   useEffect(() => {
@@ -48,8 +48,10 @@ export default function Movies({ config }) {
 
   const handleOnSearch = useCallback(
     (value) => {
-      setSearch(value);
-      setMovies(filterMovies({ movies: serverMovies, search: value }));
+      const filteredMovies = filterMovies({ movies: serverMovies, ...value });
+      saveFoundMovies(filteredMovies);
+
+      setMovies(filteredMovies);
       setCount(config.moviesPerPage);
     },
     [config.moviesPerPage, serverMovies]
@@ -62,7 +64,7 @@ export default function Movies({ config }) {
   const _movies = movies.slice(0, count);
 
   const isMore = count < movies.length;
-  const isEmpty = Boolean(!movies.length && search && !isLoading && !error);
+  const isEmpty = Boolean(!movies.length && !isLoading && !error);
 
   const handleOnLike = useCallback(
     (data) => {
@@ -85,30 +87,13 @@ export default function Movies({ config }) {
     [setFavoriteMovies]
   );
 
-  const filterAndSaveMovies = useCallback(
-    (search, switcher) => {
-      const foundMovies = filterMovies({
-        movies: serverMovies,
-        search,
-        switcher,
-      });
-
-      saveFoundMovies(foundMovies);
-      setMovies(foundMovies);
-    },
-    [serverMovies]
-  );
-
-  const handleOnToggle = useCallback(
-    (value) => {
-      filterAndSaveMovies(search, value);
-    },
-    [search, filterAndSaveMovies]
-  );
+  useEffect(() => {
+    setMovies(getFoundMovies());
+  }, []);
 
   return (
     <main className='movies-page'>
-      <SearchForm onSearch={handleOnSearch} onToggle={handleOnToggle} />
+      <SearchForm onChange={handleOnSearch} />
       {isEmpty && <p className='movies-page__empty'>Ничего не найдено</p>}
       {isLoading && <Preloader />}
       {error && <div>{error}</div>}

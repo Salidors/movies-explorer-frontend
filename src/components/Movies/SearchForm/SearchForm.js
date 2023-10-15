@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './SearchForm.css';
 import Toggle from '../../Toggle/Toggle';
 import {
@@ -8,7 +8,7 @@ import {
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export default function SearchForm({ onSearch, onToggle }) {
+export default function SearchForm({ onChange }) {
   const { pathname } = useLocation();
   const { switcher, filter } = useMemo(
     () =>
@@ -31,18 +31,19 @@ export default function SearchForm({ onSearch, onToggle }) {
     setSearch(value);
   };
 
-  const handleOnSearch = () => {
-    onSearch(search, isToggled);
-  };
+  const handleOnSearch = useCallback(() => {
+    onChange({ search, switcher: isToggled });
+  }, [onChange, search, isToggled]);
 
   useEffect(() => {
     if (pathname === '/movies')
       saveAllMoviesSearch({ filter: search, switcher: isToggled });
   }, [isToggled, search, pathname]);
 
-  useEffect(() => {
-    onToggle(isToggled);
-  }, [isToggled, onToggle]);
+  const handleOnToggle = useCallback(() => {
+    onChange({ search, switcher: !isToggled });
+    setIsToggled(!isToggled);
+  }, [isToggled, search, onChange]);
 
   const isSubmitDisabled = Boolean(error);
   return (
@@ -73,7 +74,7 @@ export default function SearchForm({ onSearch, onToggle }) {
           Найти
         </button>
         <p className='form-search__error'>{error}</p>
-        <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
+        <Toggle isOn={isToggled} onChange={handleOnToggle} />
       </form>
     </section>
   );
