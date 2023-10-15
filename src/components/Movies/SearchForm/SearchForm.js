@@ -22,7 +22,7 @@ export default function SearchForm({ onChange }) {
   const [isToggled, setIsToggled] = useState(switcher);
   const [error, setError] = useState();
 
-  const [search, setSearch] = useState(filter);
+  const [search, setSearch] = useState(filter || '');
 
   const handleOnNameChange = (event) => {
     if (refForm.current.checkValidity()) setError('');

@@ -32,6 +32,7 @@ export default function SavedMovies({ config }) {
   const handleOnDislike = useCallback(
     ({ _id }) => {
       deleteMovie(_id).then(() => {
+        setMovies((state) => state.filter((movie) => movie._id !== _id));
         setFavoriteMovies((state) =>
           state.filter((movie) => movie._id !== _id)
         );

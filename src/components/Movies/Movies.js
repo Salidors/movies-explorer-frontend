@@ -18,7 +18,8 @@ export default function Movies({ config }) {
   const { setFavoriteMovies } = useFavoriteMovies();
 
   const [serverMovies, setServerMovies] = useState(getServerMovies());
-  const [movies, setMovies] = useState(getFoundMovies());
+
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setLoading] = useState(false);
 
@@ -88,7 +89,7 @@ export default function Movies({ config }) {
   );
 
   useEffect(() => {
-    setMovies(getFoundMovies());
+    if (getAllMoviesSearch().filter) setMovies(getFoundMovies());
   }, []);
 
   return (

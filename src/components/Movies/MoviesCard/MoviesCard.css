@@ -33,9 +33,14 @@
 
 .movies__like-btn {
   background-image: url(../../../images/heart.svg);
+  background-repeat: no-repeat;
   background-color: transparent;
   width: 30px;
   height: 24px;
+}
+
+.movies__like-btn:hover {
+  background-color: transparent;
 }
 
 .movies__like-btn_active {
