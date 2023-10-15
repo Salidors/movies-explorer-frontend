@@ -34,3 +34,9 @@ export const getFoundMovies = () => {
   const movies = window.localStorage.getItem(foundMoviesName) || '[]';
   if (movies) return JSON.parse(movies);
 };
+
+export const cleanStorage = () => {
+  window.localStorage.removeItem(movieName);
+  window.localStorage.removeItem(allMoviesSearchName);
+  window.localStorage.removeItem(foundMoviesName);
+};

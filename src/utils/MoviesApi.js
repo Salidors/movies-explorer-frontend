@@ -53,3 +53,11 @@ export const deleteMovie = (movieId) => {
     credentials: 'include',
   }).then((res) => res.json());
 };
+
+export const signOut = (movieId) => {
+  return fetch(`${API_URL}/signout`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then((res) => res.json());
+};

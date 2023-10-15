@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import './Signout.css';
-import { API_URL } from '../constants/constants';
+import { cleanStorage } from '../../utils/localStorage';
+import { signOut } from '../../utils/MoviesApi';
 
 export default function Signout({ onSignOut }) {
   useEffect(() => {
-    fetch(`${API_URL}/signout`).then(() => {
+    signOut().then(() => {
       onSignOut();
+      cleanStorage();
     });
   }, [onSignOut]);
 

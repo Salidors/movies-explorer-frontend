@@ -96,7 +96,10 @@ function App() {
         setCurrentUser(info);
         setIsAuth(true);
       })
-      .catch(() => {});
+      .catch(() => {
+        setIsAuth(false);
+        setCurrentUser();
+      });
   }, [handleOnSuccessSignIn]);
 
   useEffect(() => {
