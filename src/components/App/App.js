@@ -22,8 +22,7 @@ import {
   MOVIES_PER_PAGE_TABLET,
 } from '../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import { getUserInfo } from '../../utils/MainApi';
-import { fetchFavoriteMovies } from '../../utils/MoviesApi';
+import { getUserInfo, fetchFavoriteMovies } from '../../utils/MainApi';
 
 function App() {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
@@ -66,8 +65,6 @@ function App() {
     };
 
   const loadUserInfo = useCallback(() => {
-    if (!document.cookie.includes('jwt')) return;
-
     getUserInfo()
       .then((info) => {
         setCurrentUser(info);
@@ -93,8 +90,6 @@ function App() {
   };
 
   useEffect(() => {
-    if (!document.cookie.includes('jwt')) return;
-
     getUserInfo()
       .then((info) => {
         setCurrentUser(info);

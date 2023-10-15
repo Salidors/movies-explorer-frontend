@@ -3,7 +3,8 @@ import './Movies.css';
 import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
-import { fetchMovies, filterMovies, saveMovie } from '../../utils/MoviesApi';
+import { fetchMovies } from '../../utils/MoviesApi';
+import { filterMovies, saveMovie } from '../../utils/MainApi';
 import { useFavoriteMovies } from '../hooks/useFavoriteMovies';
 import {
   getFoundMovies,
