@@ -66,6 +66,8 @@ function App() {
     };
 
   const loadUserInfo = useCallback(() => {
+    if (!document.cookie.includes('jwt')) return;
+
     getUserInfo()
       .then((info) => {
         setCurrentUser(info);
@@ -91,6 +93,8 @@ function App() {
   };
 
   useEffect(() => {
+    if (!document.cookie.includes('jwt')) return;
+
     getUserInfo()
       .then((info) => {
         setCurrentUser(info);
