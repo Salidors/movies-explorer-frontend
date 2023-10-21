@@ -1,5 +1,5 @@
-export const API_URL = 'https://api.arcana.nomoredomainsicu.ru';
-// export const API_URL = 'http://localhost:3102';
+// export const API_URL = 'https://api.arcana.nomoredomainsicu.ru';
+export const API_URL = 'http://localhost:3102';
 export const MOVIES_API_URL = 'https://api.nomoreparties.co';
 export const MOVIES_PER_PAGE_DESKTOP = 16;
 export const MOVIES_MORE_DESKTOP = 4;
