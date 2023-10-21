@@ -71,4 +71,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Проект создан по макету: "light-1".
 
-[ссылка на pull request] (https://github.com/Salidors/movies-explorer-frontend/pulls)
+
+**GH-репозиторий**
+[ссылка на репозиторий](https://github.com/Salidors/movies-explorer-frontend/pull/2)
+
+**https сервис**
+[ссылка на сервис](https://arcana.nomoredomainsicu.ru/)
