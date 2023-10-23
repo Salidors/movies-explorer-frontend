@@ -21,7 +21,7 @@ export default function MoviesCardList({
           return (
             <MoviesCard
               movie={movie}
-              key={movie.id}
+              key={movie.id || movie._id}
               favorites={favorites}
               onLike={() => onLike(movie, isLiked)}
               isLiked={isLiked}
