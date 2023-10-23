@@ -4,7 +4,7 @@ import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import { fetchMovies } from '../../utils/MoviesApi';
-import { filterMovies, saveMovie } from '../../utils/MainApi';
+import { deleteMovie, filterMovies, saveMovie } from '../../utils/MainApi';
 import { useFavoriteMovies } from '../../hooks/useFavoriteMovies';
 import {
   getFoundMovies,
@@ -16,7 +16,7 @@ import {
 import { MOVIES_API_URL } from '../../constants/constants';
 
 export default function Movies({ config }) {
-  const { setFavoriteMovies } = useFavoriteMovies();
+  const { favoriteMovies, setFavoriteMovies } = useFavoriteMovies();
 
   const [serverMovies, setServerMovies] = useState(getServerMovies());
 
@@ -69,24 +69,32 @@ export default function Movies({ config }) {
   const isEmpty = Boolean(!movies.length && !isLoading && !error);
 
   const handleOnLike = useCallback(
-    (data) => {
-      saveMovie({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        year: data.year,
-        description: data.description,
-        image: data.image,
-        trailerLink: data.trailerLink,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN,
-        thumbnail: data.thumbnail,
-        movieId: data.id,
-      }).then((movie) => {
-        setFavoriteMovies((state) => [...state, movie]);
-      });
+    (data, isLiked) => {
+      if (isLiked) {
+        const { _id } = favoriteMovies.find((fm) => fm.id === data.movieId);
+        deleteMovie(_id).then(() => {
+          setFavoriteMovies((state) =>
+            state.filter((movie) => movie._id !== _id)
+          );
+        });
+      } else
+        saveMovie({
+          country: data.country,
+          director: data.director,
+          duration: data.duration,
+          year: data.year,
+          description: data.description,
+          image: data.image,
+          trailerLink: data.trailerLink,
+          nameRU: data.nameRU,
+          nameEN: data.nameEN,
+          thumbnail: data.thumbnail,
+          movieId: data.id,
+        }).then((movie) => {
+          setFavoriteMovies((state) => [...state, movie]);
+        });
     },
-    [setFavoriteMovies]
+    [setFavoriteMovies, favoriteMovies]
   );
 
   useEffect(() => {

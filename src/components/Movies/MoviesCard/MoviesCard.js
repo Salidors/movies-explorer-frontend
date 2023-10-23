@@ -26,7 +26,7 @@ export default function MoviesCard({
           <h2 className='movies__title'>{nameRU}</h2>
           <button
             className={getButtonClassName(isLiked, favorites)}
-            onClick={() => onLike(movie)}
+            onClick={() => onLike(movie, isLiked)}
             type='button'
           ></button>
         </div>
