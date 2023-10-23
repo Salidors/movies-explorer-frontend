@@ -30,6 +30,7 @@ function App() {
   const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { pathname } = useLocation();
+  console.log({ pathname });
   const isLight = pathname !== '/';
 
   const [currentUser, setCurrentUser] = useState();
