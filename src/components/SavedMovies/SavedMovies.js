@@ -9,7 +9,7 @@ export default function SavedMovies({ config }) {
   const [count, setCount] = useState(config.moviesPerPage);
   const { favoriteMovies, setFavoriteMovies } = useFavoriteMovies();
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(favoriteMovies);
 
   const handleOnSearch = useCallback(
     (value) => {

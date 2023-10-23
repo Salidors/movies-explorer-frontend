@@ -14,7 +14,7 @@ export default function SearchForm({ onChange }) {
     () =>
       pathname === '/movies'
         ? getAllMoviesSearch()
-        : { switcher: true, filter: '' },
+        : { switcher: false, filter: '' },
     [pathname]
   );
 
