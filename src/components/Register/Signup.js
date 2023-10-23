@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { signUp } from '../../utils/MainApi';
 
 export default function Signup({ onSuccessSignUp }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const refForm = useRef(null);
 
   const [name, setName] = useState('');
@@ -17,7 +18,8 @@ export default function Signup({ onSuccessSignUp }) {
     else setError(event.target.validationMessage);
     setPassword(event.currentTarget.value);
   };
-  const isFormValid = refForm.current && refForm.current.checkValidity();
+  const isFormValid =
+    refForm.current && refForm.current.checkValidity() && !isSubmitting;
 
   const handleOnEmailChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
@@ -34,6 +36,8 @@ export default function Signup({ onSuccessSignUp }) {
   const isSubmitDisabled = Boolean(!isFormValid);
 
   const handleOnSubmit = useCallback(() => {
+    setIsSubmitting(true);
+
     signUp({ name, email, password })
       .then(() => {
         onSuccessSignUp();
@@ -41,6 +45,9 @@ export default function Signup({ onSuccessSignUp }) {
       .catch((e) => {
         setError(e.message);
         console.error(e);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
   }, [name, email, password, onSuccessSignUp]);
 

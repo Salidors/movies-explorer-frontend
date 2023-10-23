@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './Signin.css';
 import { Link } from 'react-router-dom';
-import { getUserInfo, signIn } from '../../utils/MainApi';
+import { signIn } from '../../utils/MainApi';
 
 export default function Signin({ onSuccessSignIn }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const refForm = useRef(null);
 
   const [password, setPassword] = useState('');
@@ -16,7 +17,8 @@ export default function Signin({ onSuccessSignIn }) {
     else setError(event.target.validationMessage);
     setPassword(event.currentTarget.value);
   };
-  const isFormValid = refForm.current && refForm.current.checkValidity();
+  const isFormValid =
+    refForm.current && refForm.current.checkValidity() && !isSubmitting;
 
   const handleOnEmailChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
@@ -27,12 +29,17 @@ export default function Signin({ onSuccessSignIn }) {
   const isSubmitDisabled = Boolean(!isFormValid);
 
   const handleOnSignIn = useCallback(() => {
+    setIsSubmitting(true);
+
     signIn({ email, password })
       .then(() => {
         onSuccessSignIn();
       })
       .catch((e) => {
         console.error(e);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
   }, [email, password, onSuccessSignIn]);
 
