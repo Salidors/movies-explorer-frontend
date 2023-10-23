@@ -25,6 +25,7 @@ export default function Movies({ config }) {
   const [isLoading, setLoading] = useState(false);
 
   const [count, setCount] = useState(config.moviesPerPage);
+  console.log({count});
 
   useEffect(() => {
     if (serverMovies) return;

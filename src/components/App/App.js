@@ -20,6 +20,8 @@ import {
   MOVIES_PER_PAGE_DESKTOP,
   MOVIES_PER_PAGE_MOBILE,
   MOVIES_PER_PAGE_TABLET,
+  MOVIES_MORE_MOBILE_XS,
+  MOVIES_PER_PAGE_MOBILE_XS,
 } from '../../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { getUserInfo, fetchFavoriteMovies, signOut } from '../../utils/MainApi';
@@ -55,12 +57,17 @@ function App() {
     moviesPerPage: MOVIES_PER_PAGE_DESKTOP,
     moreMovies: MOVIES_MORE_DESKTOP,
   };
-  if (windowSize <= 320)
+  if (windowSize <= 500)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_MOBILE_XS,
+      moreMovies: MOVIES_MORE_MOBILE_XS,
+    };
+  else if (windowSize <= 900)
     moviesPerPage = {
       moviesPerPage: MOVIES_PER_PAGE_MOBILE,
       moreMovies: MOVIES_MORE_MOBILE,
     };
-  else if (windowSize <= 768)
+  else if (windowSize <= 1100)
     moviesPerPage = {
       moviesPerPage: MOVIES_PER_PAGE_TABLET,
       moreMovies: MOVIES_MORE_TABLET,
@@ -160,7 +167,10 @@ function App() {
                 path='movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <Movies config={moviesPerPage} />
+                    <Movies
+                      config={moviesPerPage}
+                      key={moviesPerPage.moviesPerPage}
+                    />
                   </ProtectedRoute>
                 }
               />
@@ -169,7 +179,10 @@ function App() {
                 path='saved-movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <SavedMovies config={moviesPerPage} />
+                    <SavedMovies
+                      config={moviesPerPage}
+                      key={moviesPerPage.moviesPerPage}
+                    />
                   </ProtectedRoute>
                 }
               />
