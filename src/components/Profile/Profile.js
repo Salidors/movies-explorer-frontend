@@ -29,7 +29,8 @@ export default function Profile() {
     setEmail(event.currentTarget.value);
   };
 
-  const isSubmitDisabled = Boolean(nameError || emailError);
+  const isPreviousInfo = currentName === name && currentEmail === email;
+  const isSubmitDisabled = Boolean(nameError || emailError || isPreviousInfo);
 
   const handleOnSubmit = useCallback(() => {
     updateUserInfo({ name, email })
