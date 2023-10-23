@@ -3,7 +3,7 @@ import './Header.css';
 import logo from '../../images/logo.svg';
 import Navigation from '../Navigation/Navigation';
 import { Link, NavLink } from 'react-router-dom';
-import { useWindowSize } from '../hooks/useWindowSize';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 const AuthNavigation = () => {
   return (

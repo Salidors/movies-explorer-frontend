@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import { fetchMovies } from '../../utils/MoviesApi';
 import { filterMovies, saveMovie } from '../../utils/MainApi';
-import { useFavoriteMovies } from '../hooks/useFavoriteMovies';
+import { useFavoriteMovies } from '../../hooks/useFavoriteMovies';
 import {
   getFoundMovies,
   getServerMovies,
@@ -13,7 +13,7 @@ import {
   saveFoundMovies,
   getAllMoviesSearch,
 } from '../../utils/localStorage';
-import { MOVIES_API_URL } from '../constants/constants';
+import { MOVIES_API_URL } from '../../constants/constants';
 
 export default function Movies({ config }) {
   const { setFavoriteMovies } = useFavoriteMovies();

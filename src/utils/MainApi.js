@@ -1,4 +1,4 @@
-import { API_URL } from '../components/constants/constants';
+import { API_URL } from '../constants/constants';
 
 const headers = {
   'content-type': 'application/json',
@@ -85,7 +85,7 @@ export const deleteMovie = (movieId) => {
   }).then((res) => res.json());
 };
 
-export const signOut = (movieId) => {
+export const signOut = () => {
   return fetch(`${API_URL}/signout`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

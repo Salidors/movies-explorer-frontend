@@ -1,6 +1,6 @@
 import React from 'react';
 import './MoviesCard.css';
-import { formatDuration } from '../../../utils/date';
+import { formatDuration } from '../../../utils/duration';
 
 export default function MoviesCard({
   movie,

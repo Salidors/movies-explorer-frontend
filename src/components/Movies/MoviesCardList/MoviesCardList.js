@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { useFavoriteMovies } from '../../hooks/useFavoriteMovies';
+import { useFavoriteMovies } from '../../../hooks/useFavoriteMovies';
 
 export default function MoviesCardList({
   movies = [],

@@ -9,7 +9,7 @@ import Signup from '../Register/Signup';
 import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import { Context } from '../Context/Context';
+import { Context } from '../../Context/Context';
 import { useCallback, useEffect, useState } from 'react';
 import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
@@ -20,7 +20,7 @@ import {
   MOVIES_PER_PAGE_DESKTOP,
   MOVIES_PER_PAGE_MOBILE,
   MOVIES_PER_PAGE_TABLET,
-} from '../constants/constants';
+} from '../../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { getUserInfo, fetchFavoriteMovies } from '../../utils/MainApi';
 

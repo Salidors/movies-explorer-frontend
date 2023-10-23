@@ -1,4 +1,4 @@
-import { MOVIES_API_URL } from '../components/constants/constants';
+import { MOVIES_API_URL } from '../constants/constants';
 
 export const fetchMovies = () => {
   return fetch(`${MOVIES_API_URL}/beatfilm-movies`, {

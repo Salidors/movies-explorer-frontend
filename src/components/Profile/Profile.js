@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
-import { useCurrentUser } from '../hooks/useCurrentUser';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { updateUserInfo } from '../../utils/MainApi';
 
 export default function Profile() {

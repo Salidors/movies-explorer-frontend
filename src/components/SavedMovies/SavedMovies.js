@@ -3,7 +3,7 @@ import './SavedMovies.css';
 import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import { deleteMovie, filterMovies } from '../../utils/MainApi';
-import { useFavoriteMovies } from '../hooks/useFavoriteMovies';
+import { useFavoriteMovies } from '../../hooks/useFavoriteMovies';
 
 export default function SavedMovies({ config }) {
   const [count, setCount] = useState(config.moviesPerPage);
