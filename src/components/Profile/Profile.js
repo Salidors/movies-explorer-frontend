@@ -5,6 +5,7 @@ import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { updateUserInfo } from '../../utils/MainApi';
 
 export default function Profile() {
+  const [saved, setSaved] = useState(false);
   const refForm = useRef(null);
 
   const {
@@ -18,12 +19,14 @@ export default function Profile() {
   const [emailError, setEmailError] = useState('');
 
   const handleOnNameChange = (event) => {
+    setSaved(false);
     if (refForm.current.checkValidity()) setNameError('');
     else setNameError(event.target.validationMessage);
     setName(event.currentTarget.value);
   };
 
   const handleOnEmailChange = (event) => {
+    setSaved(false);
     if (refForm.current.checkValidity()) setEmailError('');
     else setEmailError(event.target.validationMessage);
     setEmail(event.currentTarget.value);
@@ -36,11 +39,15 @@ export default function Profile() {
     updateUserInfo({ name, email })
       .then((data) => {
         updateCurrentUser(data);
+        setSaved(true);
+        setTimeout(() => {
+          setSaved(false);
+        }, 4000);
       })
       .catch((e) => {
         setEmailError(e.message);
       });
-  }, [name, email, updateCurrentUser]);
+  }, [name, email, updateCurrentUser, setSaved]);
 
   return (
     <main>
@@ -86,6 +93,9 @@ export default function Profile() {
             <p className='profile__error'>{emailError}</p>
           </div>
           <nav className='profile__form-nav'>
+            <p className='profile__success'>
+              {saved ? 'Данные успешно сохранены' : ''}
+            </p>
             <button
               className={'btn profile__btn-save'}
               onClick={handleOnSubmit}
