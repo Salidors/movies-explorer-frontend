@@ -22,10 +22,11 @@ import {
   MOVIES_PER_PAGE_TABLET,
 } from '../../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import { getUserInfo, fetchFavoriteMovies } from '../../utils/MainApi';
+import { getUserInfo, fetchFavoriteMovies, signOut } from '../../utils/MainApi';
+import { cleanStorage } from '../../utils/localStorage';
 
 function App() {
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState();
   const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { pathname } = useLocation();
@@ -85,11 +86,15 @@ function App() {
   }, [loadUserInfo]);
 
   const handleOnSignOut = () => {
-    setIsAuth(false);
-    navigate('/');
+    signOut().then(() => {
+      cleanStorage();
+      setIsAuth(false);
+      navigate('/');
+    });
   };
 
   useEffect(() => {
+    if (currentUser) return;
     getUserInfo()
       .then((info) => {
         setCurrentUser(info);
@@ -99,12 +104,12 @@ function App() {
         setIsAuth(false);
         setCurrentUser();
       });
-  }, [handleOnSuccessSignIn]);
+  }, [handleOnSuccessSignIn, currentUser]);
 
   useEffect(() => {
-    if (!isAuth) return;
+    if (!isAuth || favoriteMovies) return;
     fetchFavoriteMovies().then(setFavoriteMovies);
-  }, [isAuth]);
+  }, [isAuth, favoriteMovies]);
 
   return (
     <Context.Provider

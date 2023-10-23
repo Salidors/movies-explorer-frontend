@@ -1,14 +1,9 @@
 import React, { useEffect } from 'react';
 import './Signout.css';
-import { cleanStorage } from '../../utils/localStorage';
-import { signOut } from '../../utils/MainApi';
 
 export default function Signout({ onSignOut }) {
   useEffect(() => {
-    signOut().then(() => {
-      onSignOut();
-      cleanStorage();
-    });
+    onSignOut();
   }, [onSignOut]);
 
   return (
