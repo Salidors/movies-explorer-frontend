@@ -25,7 +25,6 @@ export default function Movies({ config }) {
   const [isLoading, setLoading] = useState(false);
 
   const [count, setCount] = useState(config.moviesPerPage);
-  console.log({count});
 
   useEffect(() => {
     if (serverMovies) return;
@@ -70,9 +69,10 @@ export default function Movies({ config }) {
   const isEmpty = Boolean(!movies.length && !isLoading && !error);
 
   const handleOnLike = useCallback(
-    (data, isLiked) => {
+    (data, isLiked = false) => {
       if (isLiked) {
-        const { _id } = favoriteMovies.find((fm) => fm.id === data.movieId);
+        const { _id } = favoriteMovies.find((fm) => fm.movieId === data.id);
+
         deleteMovie(_id).then(() => {
           setFavoriteMovies((state) =>
             state.filter((movie) => movie._id !== _id)
