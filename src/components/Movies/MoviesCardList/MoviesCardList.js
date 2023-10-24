@@ -1,51 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./MoviesCardList.css";
-import MoviesCard from "../MoviesCard/MoviesCard";
-import { useLocation } from "react-router-dom";
+import React from 'react';
+import './MoviesCardList.css';
+import MoviesCard from '../MoviesCard/MoviesCard';
+import { useFavoriteMovies } from '../../../hooks/useFavoriteMovies';
 
 export default function MoviesCardList({
   movies = [],
   favorites = false,
   onLike,
-  moviesPerPage,
+  onMore,
 }) {
-  const { pathname } = useLocation();
-  const startPosition = useRef(0);
-  const endPosition = useRef(moviesPerPage - 1);
-  const [currentMovies, setCurrentMovies] = useState(
-    movies.slice(startPosition.current, endPosition.current + 1)
-  );
+  const showMore = Boolean(onMore);
+  const { favoriteMovies } = useFavoriteMovies();
 
-  const handleOnMore = () => {
-    startPosition.current += moviesPerPage;
-    endPosition.current += moviesPerPage;
-    setCurrentMovies(
-      movies.slice(startPosition.current, endPosition.current + 1)
-    );
-  };
-
-  useEffect(() => {
-    endPosition.current = moviesPerPage - 1;
-  }, [moviesPerPage]);
-
-  const showMore = movies.length > 0 && pathname !== "/saved-movies";
   return (
     <section className='movies'>
       <ul className='movies__list'>
-        {currentMovies.map((movie) => (
-          <MoviesCard
-            movie={movie}
-            key={movie._id}
-            favorites={favorites}
-            onLike={onLike}
-          />
-        ))}
+        {movies.map((movie) => {
+          const isLiked = favoriteMovies.some((m) => m.movieId === movie.id);
+
+          return (
+            <MoviesCard
+              movie={movie}
+              key={movie.id || movie._id}
+              favorites={favorites}
+              onLike={() => onLike(movie, isLiked)}
+              isLiked={isLiked}
+            />
+          );
+        })}
       </ul>
       <button
         className={`btn movies-page__more ${
-          showMore ? "" : "movies-page__more--hidden"
+          showMore ? '' : 'movies-page__more--hidden'
         }`}
-        onClick={handleOnMore}
+        onClick={onMore}
         type='button'
       >
         Ещё

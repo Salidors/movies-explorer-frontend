@@ -1,24 +1,49 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './SearchForm.css';
 import Toggle from '../../Toggle/Toggle';
+import {
+  saveAllMoviesSearch,
+  getAllMoviesSearch,
+} from '../../../utils/localStorage';
+import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export default function SearchForm({ onSearch }) {
+export default function SearchForm({ onChange }) {
+  const { pathname } = useLocation();
+  const { switcher, filter } = useMemo(
+    () =>
+      pathname === '/movies'
+        ? getAllMoviesSearch()
+        : { switcher: false, filter: '' },
+    [pathname]
+  );
+
   const refForm = useRef(null);
-  const [isToggled, setIsToggled] = useState(true);
+  const [isToggled, setIsToggled] = useState(switcher);
   const [error, setError] = useState();
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(filter || '');
 
   const handleOnNameChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
-    else setError(event.target.validationMessage);
+    else setError('Нужно ввести ключевое слово');
     const { value } = event.currentTarget;
     setSearch(value);
   };
 
-  const handleOnSearch = () => {
-    onSearch(search);
-  };
+  const handleOnSearch = useCallback(() => {
+    onChange({ search, switcher: isToggled });
+  }, [onChange, search, isToggled]);
+
+  useEffect(() => {
+    if (pathname === '/movies')
+      saveAllMoviesSearch({ filter: search, switcher: isToggled });
+  }, [isToggled, search, pathname]);
+
+  const handleOnToggle = useCallback(() => {
+    onChange({ search, switcher: !isToggled });
+    setIsToggled(!isToggled);
+  }, [isToggled, search, onChange]);
 
   const isSubmitDisabled = Boolean(error);
   return (
@@ -49,7 +74,7 @@ export default function SearchForm({ onSearch }) {
           Найти
         </button>
         <p className='form-search__error'>{error}</p>
-        <Toggle isOn={isToggled} onChange={() => setIsToggled(!isToggled)} />
+        <Toggle isOn={isToggled} onChange={handleOnToggle} />
       </form>
     </section>
   );

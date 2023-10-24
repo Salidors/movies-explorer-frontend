@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
-import { useCurrentUser } from '../hooks/useCurrentUser';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
+import { updateUserInfo } from '../../utils/MainApi';
 
 export default function Profile() {
+  const [saved, setSaved] = useState(false);
   const refForm = useRef(null);
 
   const {
@@ -17,28 +19,40 @@ export default function Profile() {
   const [emailError, setEmailError] = useState('');
 
   const handleOnNameChange = (event) => {
+    setSaved(false);
     if (refForm.current.checkValidity()) setNameError('');
     else setNameError(event.target.validationMessage);
     setName(event.currentTarget.value);
   };
 
   const handleOnEmailChange = (event) => {
+    setSaved(false);
     if (refForm.current.checkValidity()) setEmailError('');
     else setEmailError(event.target.validationMessage);
     setEmail(event.currentTarget.value);
   };
 
-  const isSubmitDisabled = Boolean(nameError || emailError);
+  const isPreviousInfo = currentName === name && currentEmail === email;
+  const isSubmitDisabled = Boolean(nameError || emailError || isPreviousInfo);
+
+  const handleOnSubmit = useCallback(() => {
+    updateUserInfo({ name, email })
+      .then((data) => {
+        updateCurrentUser(data);
+        setSaved(true);
+        setTimeout(() => {
+          setSaved(false);
+        }, 4000);
+      })
+      .catch((e) => {
+        setEmailError(e.message);
+      });
+  }, [name, email, updateCurrentUser, setSaved]);
+
   return (
     <main>
       <section className='profile'>
-        <form
-          className='profile__form'
-          ref={refForm}
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form className='profile__form' ref={refForm}>
           <div className='profile__form-container'>
             <h1 className='profile__form-title'>Привет, {currentName}!</h1>
             <div className='profile__form-input profile__form-input-email'>
@@ -74,14 +88,17 @@ export default function Profile() {
                 value={email}
                 required
                 maxLength={40}
-                />
+              />
             </div>
             <p className='profile__error'>{emailError}</p>
           </div>
           <nav className='profile__form-nav'>
+            <p className='profile__success'>
+              {saved ? 'Данные успешно сохранены' : ''}
+            </p>
             <button
               className={'btn profile__btn-save'}
-              onClick={() => updateCurrentUser({ name, email })}
+              onClick={handleOnSubmit}
               type='button'
               disabled={isSubmitDisabled}
             >

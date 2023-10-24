@@ -1,8 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './Signin.css';
 import { Link } from 'react-router-dom';
+import { signIn } from '../../utils/MainApi';
 
-export default function Signin({ onSignIn }) {
+export default function Signin({ onSuccessSignIn }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const refForm = useRef(null);
 
   const [password, setPassword] = useState('');
@@ -15,7 +17,8 @@ export default function Signin({ onSignIn }) {
     else setError(event.target.validationMessage);
     setPassword(event.currentTarget.value);
   };
-  const isFormValid = refForm.current && refForm.current.checkValidity();
+  const isFormValid =
+    refForm.current && refForm.current.checkValidity() && !isSubmitting;
 
   const handleOnEmailChange = (event) => {
     if (refForm.current.checkValidity()) setError('');
@@ -24,6 +27,21 @@ export default function Signin({ onSignIn }) {
   };
 
   const isSubmitDisabled = Boolean(!isFormValid);
+
+  const handleOnSignIn = useCallback(() => {
+    setIsSubmitting(true);
+
+    signIn({ email, password })
+      .then(() => {
+        onSuccessSignIn();
+      })
+      .catch((e) => {
+        console.error(e);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  }, [email, password, onSuccessSignIn]);
 
   return (
     <main className='signin'>
@@ -56,7 +74,7 @@ export default function Signin({ onSignIn }) {
             value={password}
             onChange={handleOnPasswordChange}
             required
-            minLength={2}
+            minLength={1}
             maxLength={30}
             placeholder='Введите пароль'
           />
@@ -64,7 +82,7 @@ export default function Signin({ onSignIn }) {
         <p className='profile__error'>{error}</p>
         <button
           className='btn signin__form-button'
-          onClick={onSignIn}
+          onClick={handleOnSignIn}
           value={email}
           disabled={isSubmitDisabled}
           type='button'

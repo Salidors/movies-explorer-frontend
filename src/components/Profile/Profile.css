@@ -134,6 +134,17 @@
   margin: 6px 0 17px;
 }
 
+.profile__success {
+  color: #ff3055;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 8px;
+  text-align: center;
+  height: 12px;
+}
+
 @media screen and (max-width: 768px) {
   .profile {
     margin-top: 225px;

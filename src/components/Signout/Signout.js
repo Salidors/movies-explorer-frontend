@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import './Signout.css';
-import { API_URL } from '../constants/constants';
 
 export default function Signout({ onSignOut }) {
   useEffect(() => {
-    fetch(`${API_URL}/signout`).then(() => {
-      onSignOut();
-    });
+    onSignOut();
   }, [onSignOut]);
 
   return (

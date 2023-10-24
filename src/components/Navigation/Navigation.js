@@ -3,7 +3,7 @@ import './Navigation.css';
 import { Link } from 'react-router-dom';
 import ProfileButton from './ProfileButton/ProfileButton';
 import Burger from './Burger/Burger';
-import { useWindowSize } from '../hooks/useWindowSize';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 const AnonymousMenu = () => {
   return (

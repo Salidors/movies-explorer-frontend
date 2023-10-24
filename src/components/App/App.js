@@ -9,27 +9,33 @@ import Signup from '../Register/Signup';
 import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import { Context } from '../Context/Context';
+import { Context } from '../../Context/Context';
 import { useCallback, useEffect, useState } from 'react';
 import EmptyFooterLayout from '../Layouts/EmptyFooterLayout/EmptyFooterLayout';
 import Signout from '../Signout/Signout';
 import {
+  MOVIES_MORE_DESKTOP,
+  MOVIES_MORE_MOBILE,
+  MOVIES_MORE_TABLET,
   MOVIES_PER_PAGE_DESKTOP,
   MOVIES_PER_PAGE_MOBILE,
   MOVIES_PER_PAGE_TABLET,
-} from '../constants/constants';
+  MOVIES_MORE_MOBILE_XS,
+  MOVIES_PER_PAGE_MOBILE_XS,
+} from '../../constants/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import { getUserInfo, fetchFavoriteMovies, signOut } from '../../utils/MainApi';
+import { cleanStorage } from '../../utils/localStorage';
 
 function App() {
+  const [favoriteMovies, setFavoriteMovies] = useState();
   const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { pathname } = useLocation();
+
   const isLight = pathname !== '/';
 
-  const [currentUser, setCurrentUser] = useState({
-    name: 'Нина',
-    email: 'abramova.nina.g@gmail.com',
-  });
+  const [currentUser, setCurrentUser] = useState();
   const [isAuth, setIsAuth] = useState(false);
 
   const updateCurrentUser = ({ name, email }) => {
@@ -37,7 +43,9 @@ function App() {
   };
 
   const memoizedCallback = useCallback(() => {
-    setWindowSize(window.innerWidth);
+    setTimeout(() => {
+      setWindowSize(window.innerWidth);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -45,23 +53,83 @@ function App() {
     return () => window.removeEventListener('resize', memoizedCallback);
   }, [memoizedCallback]);
 
-  let moviesPerPage = MOVIES_PER_PAGE_DESKTOP;
-  if (windowSize <= 320) moviesPerPage = MOVIES_PER_PAGE_MOBILE;
-  else if (windowSize <= 768) moviesPerPage = MOVIES_PER_PAGE_TABLET;
-
-  const handleOnSignIn = () => {
-    setIsAuth(true);
-    navigate('/');
+  let moviesPerPage = {
+    moviesPerPage: MOVIES_PER_PAGE_DESKTOP,
+    moreMovies: MOVIES_MORE_DESKTOP,
   };
+  if (windowSize <= 500)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_MOBILE_XS,
+      moreMovies: MOVIES_MORE_MOBILE_XS,
+    };
+  else if (windowSize <= 900)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_MOBILE,
+      moreMovies: MOVIES_MORE_MOBILE,
+    };
+  else if (windowSize <= 1100)
+    moviesPerPage = {
+      moviesPerPage: MOVIES_PER_PAGE_TABLET,
+      moreMovies: MOVIES_MORE_TABLET,
+    };
+
+  const loadUserInfo = useCallback(() => {
+    getUserInfo()
+      .then((info) => {
+        setCurrentUser(info);
+        setIsAuth(true);
+        navigate('/movies');
+      })
+      .catch(() => {
+        navigate('/');
+      });
+  }, [navigate]);
+
+  const handleOnSuccessSignIn = useCallback(() => {
+    loadUserInfo();
+  }, [loadUserInfo]);
+
+  const handleOnSuccessSignUp = useCallback(() => {
+    loadUserInfo();
+  }, [loadUserInfo]);
 
   const handleOnSignOut = () => {
-    setIsAuth(false);
-    navigate('/');
+    signOut().then(() => {
+      cleanStorage();
+      setIsAuth(false);
+      navigate('/');
+    });
   };
+
+  useEffect(() => {
+    if (currentUser) return;
+    getUserInfo()
+      .then((info) => {
+        setCurrentUser(info);
+        setIsAuth(true);
+      })
+      .catch(() => {
+        setIsAuth(false);
+        setCurrentUser();
+      });
+  }, [handleOnSuccessSignIn, currentUser]);
+
+  useEffect(() => {
+    if (!isAuth || favoriteMovies) return;
+    fetchFavoriteMovies().then(setFavoriteMovies);
+  }, [isAuth, favoriteMovies]);
 
   return (
     <Context.Provider
-      value={{ currentUser, updateCurrentUser, isAuth, isLight, windowSize }}
+      value={{
+        currentUser,
+        updateCurrentUser,
+        isAuth,
+        isLight,
+        windowSize,
+        favoriteMovies,
+        setFavoriteMovies,
+      }}
     >
       <div className='app'>
         <Routes>
@@ -69,9 +137,12 @@ function App() {
             <Route element={<LoginLayout />}>
               <Route
                 path='signin'
-                element={<Signin onSignIn={handleOnSignIn} />}
+                element={<Signin onSuccessSignIn={handleOnSuccessSignIn} />}
               />
-              <Route path='signup' element={<Signup />} />
+              <Route
+                path='signup'
+                element={<Signup onSuccessSignUp={handleOnSuccessSignUp} />}
+              />
             </Route>
             <Route
               element={
@@ -96,7 +167,10 @@ function App() {
                 path='movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <Movies moviesPerPage={moviesPerPage} />
+                    <Movies
+                      config={moviesPerPage}
+                      key={moviesPerPage.moviesPerPage}
+                    />
                   </ProtectedRoute>
                 }
               />
@@ -105,7 +179,10 @@ function App() {
                 path='saved-movies'
                 element={
                   <ProtectedRoute isAuth={isAuth}>
-                    <SavedMovies moviesPerPage={moviesPerPage} />
+                    <SavedMovies
+                      config={moviesPerPage}
+                      key={moviesPerPage.moviesPerPage}
+                    />
                   </ProtectedRoute>
                 }
               />
